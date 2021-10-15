@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://2017.igem.org/wiki/index.php?title= Template:SCU_China/default_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/reset_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/contentCommon_CSS &action=raw&ctype=text/css">
+    <style>
+        #header #title {
+            left: 35%;
+        }
+
+        #contain .left img {
+            position: absolute;
+            width: 70%;
+            top: 190px;
+            left: 12%;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div id="load" v-show="loading"><img src="https://2021.igem.org/wiki/images/c/c4/T--CPU_CHINA--loading.gif"
+                alt=""></div>
+        <div id="menu">
+            <div id="menuBack" v-show="isOpen" :class="isActive" @click="ifclick"></div>
+            <a href="https://2021.igem.org/Team:CPU_CHINA"><img id="logo"
+                    src="https://2021.igem.org/wiki/images/d/d5/T--CPU_CHINA--ProjectLogo.png" alt="项目logo"></a>
+            <div id="select" @mouseleave="leave" @mouseover="on">
+                <img id="menuImg" :src="menu" alt="这是菜单图片" @mouseover="mouseover" @click="click">
+                <ul id="class-a" class="class" v-show="classA">
+                    <li v-for="(item,index) in classList" :class="isActiveA == index? 'class-a' : ''"
+                        @click="classAClick(index)">{{item}}</li>
+                </ul>
+                <ul id="class-b" class="class" v-show="classB">
+                    <li v-for="item in classList2[isActiveA]" :class="isActiveB == item.num? 'class-b' : ''"
+                        @mouseover="classBOver(item.num)" @mouseleave="classBLeave(item.num)"><a :href="item.url">
+                            {{item.text}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <img class="background" src="https://2021.igem.org/wiki/images/7/72/T--CPU_CHINA--Safety--Background.png"
+            alt="">
+        <h1 id="title">SAFETY</h1>
+        <svg width="100%" height="100%" viewBox="0 0 1920 600" version="1.1"
+            style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <g transform="matrix(1.16285,0,0,1.38837,253.426,-231.748)">
+                <g id="AD1">
+                    <path id="凹形遮罩"
+                        d="M1433.18,439.801C1433.18,439.801 1001.08,524.071 607.621,524.374C219.99,524.673 -217.935,439.801 -217.935,439.801L-217.935,944.811L1433.18,944.811L1433.18,439.801Z"
+                        style="fill:#FAFAFA;" />
+                </g>
+            </g>
+        </svg>
+    </header>
+    <div id="contain" class=" clearfix">
+        <div class="left clearfix">
+            <svg class="Frosting" width="70%" height="300px">
+                <defs>
+                    <pattern id="cardBg" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <image opacity="0.5" width="100" height="100"
+                            xlink:href="https://2021.igem.org/wiki/images/7/75/T--CPU_CHINA--Frosting1.png" />
+                        <image class="fillLight" opacity="0.5" width="100" height="100"
+                            xlink:href="https://2021.igem.org/wiki/images/f/fd/T--CPU_CHINA--Frosting2.png" />
+                    </pattern>
+                </defs>
+                <g class="main">
+                    <g class="card">
+                        <rect fill="none" stroke="#ccc" opacity="0.75" stroke-width="3" width="100%" height="100%"
+                            rx="10" ry="10" opacity="0.6" />
+                        <rect fill="url(#cardBg)" width="100%" height="100%" rx="11" ry="11" opacity="0.6" />
+                    </g>
+                </g>
+            </svg>
+            <nav>
+                <div class="catalogue-title">SAFETY</div>
+                <ul class="catalogue">
+                    <li class="num">
+                        <a href="#section1" title="PROLOGUE">PROLOGUE</a>
+                    </li>
+
+                    <li class="num">
+                        <a href="#section2" title="GENERAL SAFETY IN LABORATORY">GENERAL SAFETY IN LABORATORY</a>
+                    </li>
+
+                    <li class="num">
+                        <a href="#section3" title="SAFETY IN EXPERIMENT DESIGN">SAFETY IN EXPERIMENT DESIGN</a>
+                    </li>
+
+                    <li class="num">
+                        <a href="#section4" title="SAFETY IN HUMAN PRACTICES">SAFETY IN HUMAN PRACTICES</a>
+                    </li>
+                </ul>
+            </nav>
+            <img src="https://2021.igem.org/wiki/images/b/b2/T--CPU_CHINA--experimentalize.png" alt="">
+        </div>
+        <div id="detail" class="clearfix">
+            <div class="section" id="section1">
+                <h2>
+                    PROLOGUE </h2>
+                <p><span>Safety is one of the most noteworthy issues in experiments. Therefore, CPU_CHINA has
+                        implemented
+                        several laboratory criteria to ensure the biosafety and biosecurity of our experiments.</span>
+                </p>
+            </div>
+
+            <div class="section" id="section2">
+                <h2>
+                    GENERAL SAFETY IN LABORATORY </h2>
+                <p><span>This year, all of our experiments are performed in BSL-1 laboratory. Before entering the
+                        laboratory, we are required to pass laboratory safety knowledge examination in order to
+                        establish
+                        basic cognitions on risk assessment, safety equipment, microbiological knowledge, emergency
+                        procedures and so forth. Also, before conducting experiments, we need to accept indispensable
+                        laboratory training regarding specific reagent and instrument usage. In this way, general
+                        laboratory
+                        knowledge, common cautions and safety awareness were educated.</span></p>
+                <p><img src="https://2021.igem.org/wiki/images/e/e1/T--CPU_CHINA--Safety--1.png"
+                        referrerpolicy="no-referrer" alt="image-20210929235906506"></p>
+                <center class="imgdescribe"><strong>Fig. 1 Laboratory safety education manual</strong></center>
+                <p><span>In addition, during the experiments, we strictly obey related laboratory regulations and
+                        experiment
+                        protocols. All team members are required to wear gloves, masks and lab coats. Eating, drinking
+                        and
+                        smoking in the lab are forbidden. </span></p>
+                <p><img src="https://2021.igem.org/wiki/images/4/41/T--CPU_CHINA--Safety--2.png"
+                        referrerpolicy="no-referrer" alt="image-20210930000101857"></p>
+                <center class="imgdescribe"><strong>Fig. 2 Masks, gloves and lab coats</strong></center>
+                <p><span>At the same time, given that we need to carry out many microbiological experiments, aseptic
+                        procedures should be standardized:</span></p>
+                <ul>
+                    <li><span>Gloves must be disinfected with 75% ethanol before conducting aseptic operations.</span>
+                    </li>
+                </ul>
+                <ul>
+                    <li><span>All aseptic manipulations are carried out beside lighted alcohol lamps.</span></li>
+                </ul>
+                <ul>
+                    <li><span>Every culture medium is treated with high pressure steam sterilization in order to avoid
+                            contamination.</span></li>
+                </ul>
+                <ul>
+                    <li><span>Ultra clean bench will be exposed to UV light for more than 30 minutes for disinfection
+                            before
+                            use.</span></li>
+                </ul>
+                <p><img src="https://2021.igem.org/wiki/images/6/6a/T--CPU_CHINA--Safety--3.png"
+                        referrerpolicy="no-referrer" alt="image-20210930000150016"></p>
+                <center class="imgdescribe"><strong>Fig. 3 Ultra clean bench</strong> </center>
+                <p><span>After experiments, with regard to the treatment of the waste, all waste bins or tanks are
+                        grouped
+                        into categories and placed in specified locations. The waste will be disposed of or recycled
+                        according to corresponding regulations.</span></p>
+                <p><img src="https://2021.igem.org/wiki/images/6/64/T--CPU_CHINA--Safety--4.png"
+                        referrerpolicy="no-referrer" alt="image-20210930000231258"></p>
+                <center class="imgdescribe"><strong>Fig. 4 Experimental waste bins</strong></center>
+            </div>
+
+            <div class="section" id="section3">
+                <h2>
+                    SAFETY IN EXPERIMENT DESIGN </h2>
+                <p><span>Considering biosafety, we choose </span><em><span>Escherichia coli</span></em><span> DH5alpha,
+                        TOP10, BL21(DE3), Rosetta(DE3) and </span><em><span>Pichia pastoris</span></em><span> GS115 as
+                        our
+                        chassis, as these organisms are categorized in risk group 1 and the iGEM white list, thus they
+                        are
+                        non-pathologic to human beings. The PE-degraded elements produced by our engineered strains,
+                        i.e.,
+                        MnP, AAO and HFB1, are derived from risk group 1 organisms and have no toxicity, so they will
+                        not do
+                        harm to our health and environment. Also, for assembling our PE-degradation system, we use
+                        CRISPR/dCas9 technique containing deactivated CRISPR-associated protein 9 which does not possess
+                        a
+                        DNA-cleavage capacity, and three designed single guided RNAs (sgRNAs) which do not target human
+                        genes. Therefore, no risk of human genome damage can be caused by our CRISPR/dCas9
+                        system.</span>
+                </p>
+                <p><span>Meanwhile, although being reprogrammed, the introduced parts will not confer our engineered
+                        strains
+                        a strengthened environmental adaptive capacity and make them become more advantageous in species
+                        competition. Thus, these engineered strains post little risk to the environment. Despite all
+                        this,
+                        in view of standard aseptic operation that we undertake, the risk of engineered strains escaping
+                        or
+                        leaking into the environment is minimized.</span></p>
+            </div>
+
+            <div class="section" id="section4">
+                <h2>
+                    SAFETY IN HUMAN PRACTICES</h2>
+                <p><span>Because of the COVID-19 pandemic, when visiting specific areas and people, the members of human
+                        practices were required to wear masks to decrease the risk of infection. All of the field trips
+                        and
+                        visits obeyed local epidemic prevention standards.</span></p>
+                <p> We contacted all companies and individuals involved in the interview in legal ways. The
+                    investigation and interview were conducted with their informed consent. At the same time, the
+                    members of Human Practices promised not to disclose the personal privacy and trade secrets of
+                    interviewees in any means.
+                </p>
+                <p><img src="https://2021.igem.org/wiki/images/e/e4/T--CPU_CHINA--Safety--5.png"
+                        referrerpolicy="no-referrer" alt="image-20210930001222702"></p>
+                <center class="imgdescribe"><strong>Fig. 5 Human practices</strong></center>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer>
+        <div id="sponsor">
+            <img src="https://2021.igem.org/wiki/images/3/31/T--CPU_CHINA--Logoes.jpg" alt="">
+        </div>
+
+
+        <div id="connect">
+            <h4>Contact us</h4>
+            <ul id="contact">
+                <li>
+                    <a href="https://weibo.com/u/6054819039">
+                        <img src="https://2021.igem.org/wiki/images/b/ba/T--CPU_CHINA--weibologo.png" alt="">
+                        <p>@CPU_CHINA2021</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:cpu_china2021@163.com">
+                        <img src="https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--emailLogo.png" alt="">
+                        <p>cpu_china2021@163.com</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="https://2021.igem.org/wiki/images/9/98/T--CPU_CHINA--GithubLogo.png" alt="">
+                        <p>Like our Website?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://international.cpu.edu.cn/">
+                        <img src="https://2021.igem.org/wiki/images/4/42/T--CPU_CHINA--CPUlogo.png" alt="">
+                        <p>International Communication</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/VueJS &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/Jquery &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_JS &action=raw&amp;ctype=text/javascript"></script>
+</body>
+
+</html>

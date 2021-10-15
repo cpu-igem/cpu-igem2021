@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attributions</title>
+    <link rel="stylesheet"
+        href="https://2017.igem.org/wiki/index.php?title= Template:SCU_China/default_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/reset_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/contentCommon_CSS &action=raw&ctype=text/css">
+    <style>
+        #header #title {
+            left: 20%;
+        }
+
+        #contain #detail {
+            width: 100%;
+            margin-right: 0;
+            -webkit-box-shadow:none;
+            -moz-box-shadow:none;
+            box-shadow: none;
+            -o-box-shadow: none;
+        }
+
+        #contain table tbody .grey {
+            background-color: #eeeeee;
+        }
+
+        #contain table td:first-child {
+            font-weight: bold;
+            width: 20%;
+        }
+        #contain table td:last-child {
+            text-align: left;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div id="load" v-show="loading"><img src="https://2021.igem.org/wiki/images/c/c4/T--CPU_CHINA--loading.gif"
+                alt=""></div>
+        <div id="menu">
+            <div id="menuBack" v-show="isOpen" :class="isActive" @click="ifclick"></div>
+            <a href="https://2021.igem.org/Team:CPU_CHINA"><img id="logo"
+                    src="https://2021.igem.org/wiki/images/d/d5/T--CPU_CHINA--ProjectLogo.png" alt="项目logo"></a>
+            <div id="select" @mouseleave="leave" @mouseover="on">
+                <img id="menuImg" :src="menu" alt="这是菜单图片" @mouseover="mouseover" @click="click">
+                <ul id="class-a" class="class" v-show="classA">
+                    <li v-for="(item,index) in classList" :class="isActiveA == index? 'class-a' : ''"
+                        @click="classAClick(index)">{{item}}</li>
+                </ul>
+                <ul id="class-b" class="class" v-show="classB">
+                    <li v-for="item in classList2[isActiveA]" :class="isActiveB == item.num? 'class-b' : ''"
+                        @mouseover="classBOver(item.num)" @mouseleave="classBLeave(item.num)"><a :href="item.url">
+                            {{item.text}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <img class="background" src="https://2021.igem.org/wiki/images/f/f0/T--CPU_CHINA--Attributions--Background.png"
+            alt="">
+        <h1 id="title">Attributions</h1>
+        <svg width="100%" height="100%" viewBox="0 0 1920 600" version="1.1"
+            style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <g transform="matrix(1.16285,0,0,1.38837,253.426,-231.748)">
+                <g id="AD1">
+                    <path id="凹形遮罩"
+                        d="M1433.18,439.801C1433.18,439.801 1001.08,524.071 607.621,524.374C219.99,524.673 -217.935,439.801 -217.935,439.801L-217.935,944.811L1433.18,944.811L1433.18,439.801Z"
+                        style="fill:#FAFAFA;" />
+                </g>
+            </g>
+        </svg>
+    </header>
+    <div id="contain" class=" clearfix">
+        <div id="detail">
+            <h2>TEAM MEMBERS</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Attributions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in attributions1" :class="item.number % 2 == 0? 'grey' : ''">
+                        <td>{{item.name}}</td>
+                        <td v-html="item.attribution"></td>
+                    </tr>
+                </tbody>
+            </table>
+            <H2>INSTRUCTORS &amp; ADVISORS</H2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Attributions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="item in attributions2" :class="item.number % 2 == 0? 'grey' : ''">
+                        <td>{{item.name}}</td>
+                        <td>{{item.attribution}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h2>GENERAL SUPPORTS</h2>
+            <p>We thank School of Pharmacy, China Pharmaceutical University for providing laboratory access for our
+                daily
+                work.</p>
+            <h2>LAB SUPPORTS</h2>
+            <p>Our primary PI, Dr. Meiling Lu, provides us with solid and consistent support of lab space (in Laboratory
+                119, new research buliding, China Pharmaceutical University) for performing microorganism-related
+                experiments, as well as purchasing necessary experimental materials and equipments. She oversees the
+                overall
+                project outline and provides theoretical guidance regarding project design and experiments.</p>
+            <p>Our secondary PI, Dr. Meirong Chen, provided us with suggestions and guidance regarding experimental
+                problems
+                and details, including repetition principles of designing and conducting experiments. </p>
+            <p>Professor Yibei Xiao, chief administrator of Laboratory 119, was also involved in funding, lab space
+                offering
+                and project design guiding of our team. Dr. Yucheng Zhao offered temporary laboratory space and
+                experimental
+                guidance to us.</p>
+            <p>Yutao Li, Qianqian Wu, Zhaoxing Li, Kejing Ren, Yang Lv, Wenxuan Zhang, Jinxing Jiang, Yu Zhang, Xiuquan
+                Ye,
+                Xiangxu Yu, Chenlin Yu, Ting Zeng, Ziwen Liu, Chen Yuan, Yao Cheng and other affiliated members of
+                Laboratory 119 helped us with many experiments.</p>
+            <h2>MODELING SUPPORTS</h2>
+            <p>Yanzhe Zhang from iDEC_CSU supported us with some innovative ideas on molecular modeling, as well as
+                knowledge on docking prediction. He also discussed the means of using Alphafold 2 for protein complex
+                prediction with us, which facilitated the construction of our composite protein model effectively.</p>
+            <p>Zhiyang Dou & Boyang Lin, team members of CPU_CHINA 2020, shared their experiences and techniques with us
+                generously, and provided us with practical suggestions in ODE modeling.</p>
+            <h2>HUMAN PRACTICES SUPPORTS</h2>
+            <ol>
+                <li></li>
+                <li>Thanks to the staff from the Cainiao Station of China Pharmaceutical University, Jiangning Garbage
+                    Transfer Station and other social groups for their great help in our research.</li>
+                <li>Thanks to the technicians of the Nanjing Ecological Environment Bureau for introducing us to the
+                    laws
+                    and regulations of express industry packaging.</li>
+                <li>Thanks to Ms. Qi Liu from Lanzhou Golden Land Plastic Products Company Limited for introducing us to
+                    the
+                    current status of biodegradable plastics.</li>
+                <li>Thanks to Green Forest Resources Recycling Company Limited and Saner International Limited, they
+                    supplemented us with the current situation of the plastic recycling and degradation market, and
+                    affirming the novel ideas in our project.</li>
+                <li>Thanks to Environmental Protection Online for building an information platform for us, which made us
+                    aware of the need to connect with the Internet in order to promote environmental technology. </li>
+                <li>Thanks to……</li>
+                <li>Thanks to Lecturer Weiguang Li from the Intellectual Property Information Service Center of China
+                    Pharmaceutical University, he provides reasonable advice and guidance for our patent application.
+                </li>
+                <li>Thanks to Professor Meiling Lu、Professor Meirong Chen of China Pharmaceutical University and Dr.
+                    Huiming
+                    Xiang of Shanghai Environment Group Company Limited for their support to the plasticase round table
+                    club.</li>
+                <li>Thanks to Yicheng Experimental Primary School and Bio-X Club of China Pharmaceutical University for
+                    providing preaching opportunities for us.</li>
+                <li>Thanks to the official Weibo and official WeChat public account of China Pharmaceutical University's
+                    public platform for providing great help in the publicity of our project.</li>
+                <li>Thanks to Mr. Guiqing Zhao from Moxiang Art Space for providing us with booth support for the art
+                    exhibition.</li>
+                <li>Thanks to China Pharmaceutical University 3D printing maker studio for providing technical support.
+                </li>
+                <li>Thanks to all the people who participated, visited, helped and guided our project.</li>
+                <li> All the people and organizations mentioned above contributed a lot to our project.</li>
+            </ol>
+            <h2>OTHER SUPPORTS</h2>
+            <p>Our PIs also helped us promote our project by participating in iGEM team meetups as project judges. In
+                addition, Dr. Meirong Chen also worked as the leading teacher of our team attending the “Bio+”
+                Innovation &
+                Entrepreneurship conference hosted in Hangzhou, China in late October.</p>
+            <p>Jiawei Wu is the doctoral student of Prof. Haiping Hao from China Pharmaceutical University. He helped us
+                with the design and technical details of qPCR experiments. He also generously provided us with necessary
+                reagents and equipment when we were in urgent need. </p>
+            <p>Xuanhong Hui is the master student of Prof. Xuefang Luo from China Pharmaceutical University. She
+                assisted us
+                with the set up and utilization of ATR infrared spectroscopy for PE-degradation analysis.</p>
+            <h2>THANK</h2>
+            <ul>
+                <li>DUT_China</li>
+                <li>NAU-CHINA</li>
+                <li>NEFU_China</li>
+                <li>Tianjin</li>
+                <li>Tongji_China</li>
+                <li>UESTC-China</li>
+            </ul>
+            <p>for cooperating with our team.</p>
+            <h2>SPONSORS</h2>
+            <p>We thank Snapgene for providing us with software support throughout the season of 2021 iGEM competition.
+            </p>
+        </div>
+    </div>
+
+    <footer>
+        <div id="sponsor">
+            <img src="https://2021.igem.org/wiki/images/3/31/T--CPU_CHINA--Logoes.jpg" alt="">
+        </div>
+
+
+        <div id="connect">
+            <h4>Contact us</h4>
+            <ul id="contact">
+                <li>
+                    <a href="https://weibo.com/u/6054819039">
+                        <img src="https://2021.igem.org/wiki/images/b/ba/T--CPU_CHINA--weibologo.png" alt="">
+                        <p>@CPU_CHINA2021</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:cpu_china2021@163.com">
+                        <img src="https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--emailLogo.png" alt="">
+                        <p>cpu_china2021@163.com</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="https://2021.igem.org/wiki/images/9/98/T--CPU_CHINA--GithubLogo.png" alt="">
+                        <p>Like our Website?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://international.cpu.edu.cn/">
+                        <img src="https://2021.igem.org/wiki/images/4/42/T--CPU_CHINA--CPUlogo.png" alt="">
+                        <p>International Communication</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/VueJS &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_JS &action=raw&amp;ctype=text/javascript"></script>
+    <script>
+        var contain = new Vue({
+            el: "#contain",
+            data: {
+                attributions1: [
+                    {
+                        name: "Linyu Zheng",
+                        attribution: "She is the team leader of CPU_CHINA 2021. She participates in organizing different issues in this team, makes connections with advisors and professors to optimize PEDe. project. She completed the construction of pUC19_dCas9-SpyCatcher and pPIC9K_3M5Q,  and led the breakdown analysis experiment of polyethylene. She contributes a lot to Human Practices and team wiki as well.",
+                        number: 1
+                    },
+                    {
+                        name: "Ziyang Huang",
+                        attribution: "He is the team leader of CPU_CHINA 2021. He arranges the team and devotes himself to almost every aspect of team issues, including project design, organizing and completing experiments, contributing to Human Practices section and establishing connections with other teams, organizations and companies. He designed and guided the RT-qPCR experiment. He is also the chief writer and reviser of wiki content and completes most of the fill in job of safety form.",
+                        number: 2
+                    },
+                    {
+                        name: "Wentao Chen",
+                        attribution: "He is the wet lab leader and the chief designer of the project. He designed the polyethylene degradation system using MnP, AAO and HFB1. He arranges the works of the wet lab group, analyzes the result and solves the problems encountered in the experiment. He is mainly responsible for electrotrans formation of <em>Pichia pastoris</em>, quantification of proteins, and assays of enzyme activity and stability.",
+                        number: 3
+                    },
+                    {
+                        name: "Peng Luo",
+                        attribution: "He completes the design of the team's part components and is responsible for the many work of the wet lab group. He completes the characterization of the corresponding components, the experimental design of <em>P.pastoris</em> expression and directed evolution of MnP. He is also responsible for collecting, organizing and analyzing experimental data. In addition, he helps to complete various wiki paperwork.",
+                        number: 4
+                    },
+                    {
+                        name: "Ruyi Ma",
+                        attribution: "She has extensive laboratory work experience. She participates in most parts of the wet lab and is responsible for completing experiments related to <em>Pichia pastoris</em>, including but not limited to fermentation, protein purification, gel electrophoresis and so forth. She also manages the site-specific mutation and the following experiments about MnP enzyme stability, as well as conducting RT-qPCR experiments. She is also involved in wiki content writing and editing.",
+                        number: 5
+                    },
+                    {
+                        name: "Zihan Yuan",
+                        attribution: "He is involved in the design of HFB1, and is responsible for the experimental work related to <em>Pichia pastoris</em> and incubation of polyethylene. He also participates in discussion of promotion video and helps to complete the wiki paperwork of Safety.",
+                        number: 6
+                    },
+                    {
+                        name: "Gongyu Liu",
+                        attribution: "She mainly completes literature research and inspires the team to apply the CRISPR/dCas9 assembly system. She designs and constructs the plasmids required for dCas9 and HFB1, completes the expression and purification of the two proteins and finishes experiments related to sgRNAs. She is responsible for the assembly verification experiment of the whole system and also communicates with other teams about some technical details.",
+                        number: 7
+                    },
+                    {
+                        name: "Qinyue Wang",
+                        attribution: "She is mainly responsible for organizing and completing experiments related to Escherichia coli. She participates in other experiments associated with component assembly. She also takes part in Human Practices section and helps to complete wiki paperwork.",
+                        number: 8
+                    },
+                    {
+                        name: "Duanduan Wang",
+                        attribution: "She is responsible for arranging the work plan for Human Practices. She participates in most Human Practice work, such as field research and holding round table meetings, etc. She is also involved in the production process of promotion & presentation videos.",
+                        number: 9
+                    },
+                    {
+                        name: "Ying Yuan",
+                        attribution: "She is a member of Human Practices. She participates in the creation and shooting of Promotion Video. In the process of project advancement, she cooperates with team members to interview relevant companies, organizations, government agencies, experts and scholars, and plays an important role in the development and commercialization of the project. At the same time, she actively participates in education and promotes synthetic biology and iGEM to different groups of people in various ways.",
+                        number: 10
+                    },
+
+                    {
+                        name: "Zekai Shen",
+                        attribution: "He devotes himself to molecular dynamics simulation and activity analysis of proteins, and conducted relevant simulations of polyethylene pyrolysis.He worked hard and designed a library of enzymes.",
+                        number: 11
+                    },
+                    {
+                        name: "Hongjie Qian",
+                        attribution: "He contributes to the modeling and is responsible for the mathematical modelling part of cellular ODE kinetic simulation by focusing on parameters and equations. Meanwhile, he helps with early preparation in the initial stage of our project, and boosted the paperwork (Wiki, report) in the final stage.",
+                        number: 12
+                    },
+                    {
+                        name: "Jianxiang Guan",
+                        attribution: "He carries out almost all the art design in static and dynamic, online and offline. He follows up on promotion & presentation videos (ideas, scripting, video clips, animation) throughout the season. He makes decisions on wiki style, logo and mascot, dynamic effect, and assisted figures. He independently designs and arranges an art exhibition for popularization of synthetic biology, which is in the service of education in Human Practice.",
+                        number: 13
+                    },
+                    {
+                        name: "Jia Zhang",
+                        attribution: "She has a strong interest in programming. She is proficient in a variety of programming languages and thus leads the production of wikis. She keeps learning and making progress in the wiki production process.",
+                        number: 14
+                    }
+                ],
+                attributions2: [
+                    {
+                        name: "Weixuan Lu",
+                        attribution: "He is the instructor of team CPU_CHINA. He is responsible for organizing and managing the work of the whole team. He reviewed and revised the main paperwork and the design of Wiki. He also participated in the general direction of the team’s decision-making and ensured that the content of the team’s work would not deviate from the right path.",
+                        number: 1
+                    },
+                    {
+                        name: "Yanfeng Liu",
+                        attribution: "He is the instructor of team CPU_CHINA. He is responsible for organizing and managing the work of the whole team and ensuring the smooth operation of the work.The design, execution and result analysis of dry lab and wet lab work of the team were all guided by him. Suggestions and assistance are also provided by him for the development of Human Practices activities. He reviewed and revised all the paperwork and arranged the overall design of Wiki. He is involved in every decision-making and contributes to team development.",
+                        number: 2
+                    },
+                    {
+                        name: "Xin Liu",
+                        attribution: "He guides the wiki building jobs of CPU_CHINA and provides suggestive advice to Jia Zhang for UI design consistently. ",
+                        number: 3
+                    },
+                    {
+                        name: "Xiaoying Li",
+                        attribution: "She helps to ease pressures and adjust the mood of the team members. She also assists in the painting of academic drawings and provides suggestions to art exhibitions. ",
+                        number: 4
+                    },
+                    {
+                        name: "Tong Lyu",
+                        attribution: "She promotes synthetic biology and iGEM, attracting more artistic people to participate in the competition to achieve a better visualization work that is both beautiful and understanding. She provided a lot of reference materials and experience for art design, and participated in the early drawing work.",
+                        number: 5
+                    },
+                    {
+                        name: "Huandi Xu",
+                        attribution: "As a senior iGEMer, he provides important references on matters of principle. He also teaches us about designing Powerpoint slides and delivering presentations to help judges better understand our project. ",
+                        number: 6
+                    },
+                    {
+                        name: "Leyi Liang",
+                        attribution: "She played a guiding role in the human practices activities of the team. She is responsible for video shooting and prepares picture materials for the team. She is also involved in framework construction and content writing of the business plan.",
+                        number: 7
+                    },
+                    {
+                        name: "Qian Li",
+                        attribution: "She is responsible for editing and submitting promotion & presentation videos. Apart from that, she also contributes to designing maps and clipping videos of ICII, a national education program lead by the Human Practices of CPU_CHINA.",
+                        number: 8
+                    },
+                    {
+                        name: "Hui Huang ",
+                        attribution: "He has been the advisor of team CPU_CHINA for a long time. He helps raise funds for our team to participate in iGEM activities, as well as handle administrative affairs.",
+                        number: 9
+                    }
+                ]
+            }
+        })
+    </script>
+</body>
+
+</html>

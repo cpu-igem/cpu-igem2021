@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet"
+        href="https://2017.igem.org/wiki/index.php?title= Template:SCU_China/default_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/reset_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_CSS &action=raw&ctype=text/css">
+</head>
+<style>
+    #first {
+        padding: 0 16%;
+    }
+
+    #first #title {
+        position: relative;
+        padding-top: 15%;
+        text-align: center;
+    }
+
+    #first #title #home-title {
+        font-family: "MONTSERRAT-BLACKITALIC2";
+        line-height: normal;
+        text-align: center;
+        font-weight: bolder;
+        font-size: 6vw;
+    }
+
+    #first #title #decoration {
+        position: absolute;
+        top: 33%;
+        left: 39%;
+        width: 20%;
+    }
+
+    #first #brief-introduction {
+        margin: 12% 0;
+        text-align: center;
+        font-family: "MONTSERRAT-BLACKITALIC2";
+        font-size: 1.5vw;
+        letter-spacing: 0.25em;
+        color: #777777;
+    }
+
+    #first .paragraph {
+        margin-bottom: 14%;
+    }
+
+    #first .paragraph #img1 {
+        float: left;
+        width: 30%;
+    }
+
+    #first .paragraph #img2 {
+        float: right;
+        width: 50%;
+    }
+
+    #first .paragraph #img3 {
+        float: left;
+        width: 30%;
+    }
+
+    #first p {
+        line-height: 3vw;
+        font-size: 2vw;
+        letter-spacing: 0.05em;
+        font-family: "MONTSERRAT-BLACK1";
+        color: #373737;
+    }
+
+    #first .paragraph #p1 {
+        padding: 5vw 0;
+        float: right;
+        text-align: right;
+        width: 70%;
+    }
+
+    #first .paragraph #p2 {
+        padding: 1.5vw 0;
+        float: left;
+        text-align: left;
+        width: 50%;
+    }
+
+    #first .paragraph #p3 {
+        padding: 3vw 0;
+        float: right;
+        text-align: right;
+        width: 70%;
+    }
+
+    #first #transition {
+        text-align: center;
+    }
+
+    #first .paragraph :nth-child(2) {
+        float: left;
+    }
+
+    #second #layer {
+        position: relative;
+        width: 100%;
+    }
+
+    #second #layer .rubbish {
+        position: absolute;
+        left: 0;
+        width: 100%;
+    }
+
+    #second #layer #rubbish1 {
+        top: 25vw;
+        z-index: 4;
+    }
+
+    #second #layer #rubbish2 {
+        top: 22vw;
+        z-index: 2;
+    }
+
+    #second #layer #rubbish3 {
+        top:-80px;
+        z-index: 3;
+    }
+
+    #second #layer #rubbish4 {
+        top: 20vw;
+        z-index: 1;
+    }
+
+    #second #layer2 img {
+        display: none;
+        width: 100%
+    }
+
+    @media screen and (max-width: 450px) {
+        #second #layer {
+            display: none;
+        }
+
+        #second #layer2 img{
+            display: block;
+        }
+
+        #first #title {
+            padding: 40vh 0 30vh;
+        }
+
+        #first #title #decoration {
+            position: absolute;
+            top: 42vh;
+            left: 26vw;
+            width: 20%;
+        }
+    }
+</style>
+
+<body>
+    <header id=header>
+        <div id="load" v-show="loading"><img src="https://2021.igem.org/wiki/images/c/c4/T--CPU_CHINA--loading.gif" alt=""></div> 
+        <div id="menu">
+            <div id="menuBack" v-show="isOpen" :class="isActive" @click="ifclick"></div>
+            <a href="https://2021.igem.org/Team:CPU_CHINA"><img id="logo" src="img2/T--CPU_CHINA--ProjectLogo.png" alt="项目logo"></a>
+            <div id="select" @mouseleave="leave" @mouseover="on">
+                <img id="menuImg" :src="menu" alt="这是菜单图片" @mouseover="mouseover" @click="click">
+                <ul id="class-a" class="class" v-show="classA">
+                    <li v-for="(item,index) in classList" :class="isActiveA == index? 'class-a' : ''"
+                        @click="classAClick(index)">{{item}}</li>
+                </ul>
+                <ul id="class-b" class="class" v-show="classB">
+                    <li v-for="item in classList2[isActiveA]" :class="isActiveB == item.num? 'class-b' : ''"
+                        @mouseover="classBOver(item.num)" @mouseleave="classBLeave(item.num)"><a :href="item.url">
+                            {{item.text}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <header id=header>
+        <div id="load" v-show="loading"><img src="./web/img/T--CPU_CHINA--loading.gif" alt=""></div>
+        <div id="menu">
+            <div id="menuBack" v-show="isOpen" :class="isActive" @click="ifclick"></div>
+            <a href="#"><img id="logo" src="./web/img/T--CPU_CHINA--ProjectLogo.png" alt="项目logo"></a>
+            <div id="select" @mouseleave="leave" @mouseover="on">
+                <img id="menuImg" :src="menu" alt="这是菜单图片" @mouseover="mouseover" @click="click">
+                <ul id="class-a" class="class" v-show="classA">
+                    <li v-for="(item,index) in classList" :class="isActiveA == index? 'class-a' : ''"
+                        @click="classAClick(index)">{{item}}</li>
+                </ul>
+                <ul id="class-b" class="class" v-show="classB">
+                    <li v-for="item in classList2[isActiveA]" :class="isActiveB == item.num? 'class-b' : ''"
+                        @mouseover="classBOver(item.num)" @mouseleave="classBLeave(item.num)"><a :href="item.url">
+                            {{item.text}}</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    <div id="first">
+        <div id="title">
+            <h1 id="home-title">POLYETHYLENE DEGRADIST</h1>
+            <img id="decoration" src="./web/img/Home/T--CPU_CHINA--Home--Pic3.gif" alt="">
+            <p id="brief-introduction">a prescription for the earth affected by plastic polution</p>
+        </div>
+        <div class="paragraph clearfix">
+            <img id="img1" src="./web/img/Home/T--CPU_CHINA--Home--Pic1.png" alt="">
+            <p id="p1">With the rapid development of e-commerce, the number of express delivery is increasing year by
+                year.</p>
+        </div>
+        <div class="paragraph clearfix">
+            <p id="p2">In 2020, China's express delivery volume will reach</p>
+            <img id="img2" src="./web/img/Home/T--CPU_CHINA--Home--Pic4.gif" alt="">
+        </div>
+        <div class="paragraph clearfix">
+            <img id="img3" src="./web/img/Home/T--CPU_CHINA--Home--Pic2.PNG" alt="">
+            <p id="p3">In order to ensure the integrity and safety of goods in express transportation, express
+                enterprises often need to package goods.</p>
+        </div>
+        <p id="transition">When the package arrives in the hands of consumers, packaging materials turn into packaging
+            waste.</p>
+    </div>
+    <div id="second">
+        <div id="layer">
+            <img class="rubbish" id="rubbish1" data-depth='1.80' data-type='parallax'
+                src="./web/img/Home/T--CPU_CHINA--Home--Rubbish1Fit.png" alt="">
+            <img class="rubbish" id="rubbish2" data-depth='1.2' data-type='parallax'
+                src="./web/img/Home/T--CPU_CHINA--Home--Rubbish2.PNG" alt="">
+            <img class="rubbish" id="rubbish3" data-depth='0.10' data-type=' parallax'
+                src="./web/img/Home/T--CPU_CHINA--Home--Rubbish3.GIF" alt="">
+            <img class="rubbish" id="rubbish4" data-depth='0.80' data-type='parallax'
+                src="./web/img/Home/T--CPU_CHINA--Home--Rubbish4.PNG" alt="">
+        </div>
+        <div id="layer2">
+            <img src="./web/img/Home/T--CPU_CHINA--Home--Rubbish.gif" alt="">
+        </div>
+        <div>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem minus, quod enim temporibus, rem repudiandae pariatur, eos quos ratione qui tenetur facere porro fuga. Molestiae quam repudiandae voluptatum esse temporibus?
+            Itaque iusto nobis vitae sapiente veniam nam dignissimos voluptatem aliquam eveniet odio sed natus ducimus deleniti, beatae libero, numquam id, obcaecati consectetur veritatis debitis quis praesentium? Ad dolore ipsa aut!
+            Voluptates vel dicta vero perspiciatis hic, nisi molestiae ut error officiis distinctio eligendi asperiores delectus ipsa ea inventore aperiam rem facere reprehenderit, temporibus earum eius minima dolorum repudiandae incidunt? Adipisci?
+            Deleniti porro dolorum fugiat debitis reprehenderit, hic commodi iure doloremque cumque, sequi ut accusantium. Tempora aperiam dolor debitis dolores vitae odio obcaecati animi? Ea, labore officia? Iure porro eligendi doloremque.
+            Quia molestias cupiditate possimus, assumenda cum architecto laudantium porro? Inventore rerum, quia vel cupiditate, dolor laudantium exercitationem aut, accusamus amet minus architecto! Impedit totam, numquam quo commodi corporis architecto porro.
+            Ducimus, odit assumenda soluta sapiente odio ex magni fugiat, iure non eos voluptatem harum aut dolor recusandae aspernatur, veniam repudiandae animi! Voluptates molestiae sit neque, officia perspiciatis aspernatur placeat quasi.
+            Magnam fuga accusamus officia eveniet animi a, saepe aliquam. Reiciendis officiis repellat similique velit facere impedit nobis eos optio quidem aut facilis praesentium eum animi illo iste, ullam quas fugiat!
+            Neque officiis illo velit ad commodi, nemo omnis a non unde odio nesciunt explicabo cumque quis ratione enim eveniet vel odit sunt quia alias facere. Ipsum quae voluptates omnis aut!
+        </div>
+    </div>
+    <footer>
+        <div id="sponsor">
+            <img src="https://2021.igem.org/wiki/images/3/31/T--CPU_CHINA--Logoes.jpg" alt="">
+        </div>
+
+
+        <div id="connect">
+            <h4>Contfooteract us</h4>
+            <ul id="contact">
+                <li>
+                    <a href="https://weibo.com/u/6054819039">
+                        <img src="https://2021.igem.org/wiki/images/b/ba/T--CPU_CHINA--weibologo.png" alt="">
+                        <p>@CPU_CHINA2021</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:cpu_china2021@163.com">
+                        <img src="https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--emailLogo.png" alt="">
+                        <p>cpu_china2021@163.com</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="https://2021.igem.org/wiki/images/9/98/T--CPU_CHINA--GithubLogo.png" alt="">
+                        <p>Like our Website?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://international.cpu.edu.cn/">
+                        <img src="https://2021.igem.org/wiki/images/4/42/T--CPU_CHINA--CPUlogo.png" alt="">
+                        <p>International Communication</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/VueJS &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/Jquery &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_JS &action=raw&amp;ctype=text/javascript"></script>
+</body>
+
+</html>

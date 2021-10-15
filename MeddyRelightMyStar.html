@@ -1,0 +1,821 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://2017.igem.org/wiki/index.php?title= Template:SCU_China/default_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/reset_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/contentCommon_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet" href="css/art.css">
+    <style>
+        #header #title {
+            top: 4vw;
+            width: 30%;
+            left: 36%;
+        }
+
+        #contain .left .drug1 {
+            position: absolute;
+            width: 120%;
+            top: 270px;
+            left: -14%;
+            z-index: 1;
+        }
+
+        #contain .left .drug2 {
+            width: 120%;
+            position: absolute;
+            top: 270px;
+            right: -34%;
+            z-index: 3;
+        }
+
+        #contain #word {
+            width: 80%;
+            margin: 10%;
+        }
+
+        #contain #detail h2,
+        #contain #detail h3 {
+            font-family: "BLACKITALIC";
+        }
+
+
+        #contain #detail .zoneImg {
+            position: flex;
+            align-items: center;
+        }
+
+        #contain #detail .zone .direction {
+            margin: 9% 2.5% 0 0;
+            width: 10%;
+            float: left;
+        }
+
+        #contain #detail .zone .zoneSort {
+            width: 85%;
+            float: left;
+        }
+
+        #contain #detail .exhibits {
+            margin: 5% 0;
+        }
+
+        #contain #detail .exhibits h5 {
+            text-align: center;
+            font-weight: bold;
+            font-size: 1.2em;
+            font-family: "BLACKITALIC";
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div id="load" v-show="loading"><img src="https://2021.igem.org/wiki/images/c/c4/T--CPU_CHINA--loading.gif"
+                alt=""></div>
+        <div id="menu">
+            <div id="menuBack" v-show="isOpen" :class="isActive" @click="ifclick"></div>
+            <a href="https://2021.igem.org/Team:CPU_CHINA"><img id="logo"
+                    src="https://2021.igem.org/wiki/images/d/d5/T--CPU_CHINA--ProjectLogo.png" alt="项目logo"></a>
+            <div id="select" @mouseleave="leave" @mouseover="on">
+                <img id="menuImg" :src="menu" alt="这是菜单图片" @mouseover="mouseover" @click="click">
+                <ul id="class-a" class="class" v-show="classA">
+                    <li v-for="(item,index) in classList" :class="isActiveA == index? 'class-a' : ''"
+                        @click="classAClick(index)">{{item}}</li>
+                </ul>
+                <ul id="class-b" class="class" v-show="classB">
+                    <li v-for="item in classList2[isActiveA]" :class="isActiveB == item.num? 'class-b' : ''"
+                        @mouseover="classBOver(item.num)" @mouseleave="classBLeave(item.num)"><a :href="item.url">
+                            {{item.text}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <img class="background" src="https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--MRMS--0Background.png" alt="">
+        <img id="title" src="https://2021.igem.org/wiki/images/3/39/T--CPU_CHINA--MRMS--0TopTitle.png" alt="">
+        <svg width="100%" height="100%" viewBox="0 0 1920 600" version="1.1"
+            style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <g transform="matrix(1.16285,0,0,1.38837,253.426,-231.748)">
+                <g id="AD1">
+                    <path id="凹形遮罩"
+                        d="M1433.18,439.801C1433.18,439.801 1001.08,524.071 607.621,524.374C219.99,524.673 -217.935,439.801 -217.935,439.801L-217.935,944.811L1433.18,944.811L1433.18,439.801Z"
+                        style="fill:#FAFAFA;" />
+                </g>
+            </g>
+        </svg>
+    </header>
+    <div id="contain" class=" clearfix">
+        <img id="word" src="https://2021.igem.org/wiki/images/2/26/T--CPU_CHINA--MRMS--0words.png" alt="">
+        <div class="left clearfix">
+            <svg class="Frosting" width="70%" height="370px">
+                <defs>
+                    <pattern id="cardBg" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <image opacity="0.5" width="100" height="100"
+                            xlink:href="https://2021.igem.org/wiki/images/7/75/T--CPU_CHINA--Frosting1.png" />
+                        <image class="fillLight" opacity="0.5" width="100" height="100"
+                            xlink:href="https://2021.igem.org/wiki/images/f/fd/T--CPU_CHINA--Frosting2.png" />
+                    </pattern>
+                </defs>
+                <g class="main">
+                    <g class="card">
+                        <rect fill="none" stroke="#ccc" opacity="0.75" stroke-width="3" width="100%" height="100%"
+                            rx="10" ry="10" opacity="0.6" />
+                        <rect fill="url(#cardBg)" width="100%" height="100%" rx="11" ry="11" opacity="0.6" />
+                    </g>
+                </g>
+            </svg>
+            <nav>
+                <div class="catalogue-title">M:RMS</div>
+                <ul class="catalogue">
+                    <li class="num">
+                        <a href="#section1" title="INTRODUCTION">INTRODUCTION</a>
+                    </li>
+                    <li class="num">
+                        <a href="#section2" title="RECRUITMENT">RECRUITMENT</a>
+                    </li>
+                    <li class="num">
+                        <a href="#section3" title="EXPLORATION">EXPLORATION</a>
+                    </li>
+                    <li class="num">
+                        <a href="#section4" title="DIFFUSION">DIFFUSION</a>
+                    </li>
+                    <li class="num">
+                        <a href="#section5" title="ACCESSIBILITY">ACCESSIBILITY</a>
+                    </li>
+                    <li class="num">
+                        <a href="#section6" title="SUBLIMATION">SUBLIMATION</a>
+                    </li>
+                </ul>
+            </nav>
+            <img class="drug1" src="https://2021.igem.org/wiki/images/4/40/T--CPU_CHINA--Drug1.png" alt="">
+            <img class="drug2" src="https://2021.igem.org/wiki/images/9/99/T--CPU_CHINA--Drug2.png" alt="">
+        </div>
+        <div id="detail" class="clearfix">
+            <p>It is our great pleasure to introduce you to one of our most special Human Practice projects this year,
+                Meddy:
+                Relight My Star, an exhibition in the form of <strong>public art</strong> showing how we use
+                <strong>synthetic
+                    biology</strong> to solve the crsis of <strong>polyethylene</strong> <strong>plastic
+                    pollution</strong>. In this
+                exhibition, everyone will play the role of an <strong>explorer</strong>, following in the footsteps of
+                the
+                protagonist, Meddy, to relight the star of synthetic biology.
+            </p>
+            <video controls width="100%">
+                <source src="https://2021.igem.org/wiki/images/a/ac/T--CPU_CHINA--MRMS--promotion.MP4" type="video/mp4">
+                <p>Your browser doesn't support HTML5 video. Here is
+                    a <a href="https://2021.igem.org/wiki/images/a/ac/T--CPU_CHINA--MRMS--promotion.MP4">link to the
+                        video</a> instead.</p>
+            </video>
+            <p class="imgdescribe center">M:RMS promotion video</p>
+            <div class="section" id="section1">
+                <h2 class="mume-header" id="introduction">INTRODUCTION</h2>
+
+                <p>Before the exploration begins, let's think about a question:</p>
+                <p><strong>How does general public associate with synthetic biology?</strong></p>
+                <p>A video you came across? Or a lecture you attended out of interest? Such forms of popular science
+                    tend to be a
+                    one-way export, and few people can really benefit from them. The significance of this exhibition
+                    lies in the fact
+                    that we utilize public art to expand different contacting ways: one is <strong>thinking
+                        induction</strong>, and
+                    the other is <strong>bidirectional interaction</strong>.</p>
+                <img src="https://2021.igem.org/wiki/images/f/fc/T--CPU_CHINA--MRMS--1_MRMS_offline_exhibition.png"
+                    alt="">
+                <p class="imgdescribe center">Fig. 1 MRMS offline exhibition</p>
+                <p>We use interactive animation, 3D printing technology, waste, walls, floors, metal, lighting, and
+                    other public art
+                    media to <strong>trigger people's thinking about environmental crises</strong>,
+                    <strong>enabling them to
+                        experience the magic of using synthetic biology to solve real problems</strong>.<br>
+                    We don't want to show the value of art by concocting serious concepts, choosing difficult
+                    subjects, or
+                    turning public artworks into fragmented creative gimmicks. We hope that this exhibition can embed a
+                    <strong>complete logical</strong> and <strong>easy-to-understand</strong> story to suit people of
+                    <strong>all
+                        ages</strong>. These people, even if they don't necessarily have the knowledge, can
+                    naturally participate
+                    in the experience of using science to solve real-world problems. This experience is not only for
+                    offline
+                    attendees, but also for those who are unable to attend due to <strong>COVID-19</strong> or other
+                    reasons. They can
+                    still scan the QR codes issued by us <strong>online and offline</strong> and use interactive
+                    technologies provided
+                    by the Internet platform to freely enjoy the exhibition.
+                </p>
+                <p>According to statistics, up to now, the exhibition has been viewed by XXX people both online and
+                    offline, and the
+                    interactive animation of synthetic biology has been viewed by XXX people. It is believed that more
+                    people will
+                    participate in the exhibition and experience the charm of synthetic biology in the future.</p>
+            </div>
+            <div class="section" id="section2">
+                <h2 class="mume-header" id="recruitment">RECRUITMENT</h2>
+
+                <p>When you open the distributed comic booklet on your hand, you actually initiate the exploration of
+                    M:RMS outside
+                    the exhibition hall.</p>
+                <div class="exhibits">
+                    <div class="rotationChart">
+                        <img :src="rotationChart1.picture[rotationChart1.number]" alt="">
+                        <div id="text"><button @click="switchLastImg(rotationChart1)">
+                                < </button>{{rotationChart1.name}}<button
+                                        @click="switchNextImg(rotationChart1)">></button>
+                        </div>
+                    </div>
+                </div>
+                <p><strong>Meddy in Wonderland</strong> is the guiding mini-comic of the exhibition, which tells the
+                    story of Meddy
+                    <strong>using synthetic biology to solve the polyethylene crisis</strong>. Booklets are one of the
+                    most common
+                    public propaganda media in our life. Here, they will become a unique fusion with juvenile comics. We
+                    distributed
+                    them or placed them in all corners of the city. When you read to the <strong>last page</strong>, you
+                    will find
+                    that this folding page is actually the <strong>online and offline invitation for this
+                        exhibition</strong>, which provides location and web address(QR code). Also, there are a
+                    lot of details
+                    about <strong>synthetic biology</strong> hidden in the comics that will help you understand and
+                    participate in the
+                    rest of the show.
+                </p>
+                <p>We believe that the wonderful pictures and interesting stories will attract the public, especially
+                    teenagers, and
+                    <strong>ignite their interest in synthetic biology from a new perspective</strong> . And we
+                    encourage them
+                    to attend the
+                    offline exhibition and further explore the mysteries of synthetic biology.
+                </p>
+                <div id="downLoad">
+                    <span>Meddy In Wonderland synthetic biology mini-comic.pdf</span>
+                    <a href="https://2021.igem.org/wiki/images/c/ce/T--CPU_CHINA--MRMS--Meddy_In_Wonderland_-_Synthetic_Biology_Adventure.pdf"
+                        download>ACCESS</a>
+                </div>
+            </div>
+            <div class="section" id="section3">
+                <h2 class="mume-header" id="exploration">EXPLORATION</h2>
+
+                <p>is located in the Moxiang Art Space, 2nd floor in the conference center of China Pharmaceutical
+                    University,
+                    Nanjing. We opened the exhibition on the opening day of our campus.</p>
+                <img src="https://2021.igem.org/wiki/images/archive/c/ce/20211005130121%21T--CPU_CHINA--MRMS--2_entrence_of_MRMS.png"
+                    alt="">
+                <p class="imgdescribe center">Fig. 2 entrence of MRMS</p>
+                <p><strong>Welcome to M:RMS main exhibition area, adventure continues!</strong></p>
+                <h3 class="mume-header">ZONE A</h3>
+                <div class="zone">
+                    <div class="zoneImg clearfix">
+                        <img class="direction" :src="direction[zone1.open]" alt="" @click="open(zone1)">
+                        <img class="zoneSort" :src="zone1.img" alt="">
+                    </div>
+                    <div v-if="zone1.open=='true'" class="exhibits" v-for="exhibit in zone1.exhibitList">
+                        <h5>{{exhibit.index}}</h5>
+                        <div class="rotationChart">
+                            <img :src="exhibit.picture[exhibit.number]" alt="">
+                            <div id="text"><button @click="switchLastImg(exhibit)">
+                                    < </button>{{exhibit.name}}<button @click="switchNextImg(exhibit)">></button>
+                            </div>
+                            <div id="briefText" v-if="exhibit.briefText" v-html="exhibit.briefText"></div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="mume-header">ZONE B</h3>
+                <div class="zone">
+                    <div class="zoneImg clearfix">
+                        <img class="direction" :src="direction[zone2.open]" alt="" @click="open(zone2)">
+                        <img class="zoneSort" :src="zone2.img" alt="">
+                    </div>
+                    <div v-if="zone2.open=='true'" class="exhibits" v-for="exhibit in zone2.exhibitList">
+                        <h5>{{exhibit.index}}</h5>
+                        <div class="rotationChart">
+                            <img :src="exhibit.picture[exhibit.number]" alt="">
+                            <div id="text"><button @click="switchLastImg(exhibit)">
+                                    < </button>{{exhibit.name}}<button @click="switchNextImg(exhibit)">></button>
+                            </div>
+                            <div id="briefText" v-if="exhibit.briefText" v-html="exhibit.briefText"></div>
+                        </div>
+                    </div>
+                </div>
+                <h3 class="mume-header">ZONE C</h3>
+                <div class="zone">
+                    <div class="zoneImg clearfix">
+                        <img class="direction" :src="direction[zone3.open]" alt="" @click="open(zone3)">
+                        <img class="zoneSort" :src="zone3.img" alt="">
+                    </div>
+                    <div v-if="zone3.open=='true'" class="exhibits" v-for="exhibit in zone3.exhibitList">
+                        <h5>{{exhibit.index}}</h5>
+                        <div class="rotationChart">
+                            <img :src="exhibit.picture[exhibit.number]" alt="">
+                            <div id="text"><button @click="switchLastImg(exhibit)">
+                                    < </button>{{exhibit.name}}<button @click="switchNextImg(exhibit)">></button>
+                            </div>
+                            <div id="briefText" v-if="exhibit.briefText" v-html="exhibit.briefText"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="exhibits">
+                    <div class="rotationChart">
+                        <img :src="rotationChart2.picture[rotationChart2.number]" alt="">
+                        <div id="text"><button @click="switchLastImg(rotationChart2)">
+                                < </button>{{rotationChart2.name}}<button
+                                        @click="switchNextImg(rotationChart2)">></button>
+                        </div>
+                    </div>
+                </div>
+                <div id="downLoad">
+                    <span>Bacteria Factory Color Cards - Children's Art.pdf</span>
+                    <a href="https://2021.igem.org/wiki/images/e/e6/T--CPU_CHINA--Bacteria_Factory_Color_Cards_-_Children%27s_Art.pdf"
+                        download>ACCESS</a>
+                </div>
+                <div id="downLoad">
+                    <span>Polyethylene Prison Cue Card - Metal Art.pdf</span>
+                    <a href="https://2021.igem.org/wiki/images/f/f6/T--CPU_CHINA--MRMS--Polyethylene_Prison_Cue_Card_-_Metal_Art.pdf"
+                        download>ACCESS</a>
+                </div>
+                <div id="downLoad">
+                    <span>Prescription for the earth Synbio Interaction animation.MP4</span>
+                    <a href="https://2021.igem.org/wiki/images/0/0b/T--CPU_CHINA--MRMS--Prescription_for_the_earth_Synbio_Interaction_animation.mp4"
+                        download>ACCESS</a>
+                </div>
+                <div id="downLoad">
+                    <span>Life Science Blueprint Coordinate Code - String art.pdf</span>
+                    <a href="https://2021.igem.org/wiki/images/4/4b/T--CPU_CHINA--MRMS--Life_Science_Blueprint_Coordinate_Code_-_String_a.pdf"
+                        download>ACCESS</a>
+                </div>
+                <div id="downLoad">
+                    <span>M:RMS Online Exhibition Address</span>
+                    <a href="#">ACCESS</a>
+                </div>
+            </div>
+            <div class="section" id="section4">
+                <h2 class="mume-header" id="diffusion">DIFFUSION</h2>
+
+                <p>In order to expand the reach of synthetic biology, a series of <strong>stickers and
+                        postcards</strong> will be
+                    given to every attendee at the end of the experience. In particular, the base paper and the back of
+                    the postcard
+                    will randomly print three different <strong>QR codes</strong> of the website of the online
+                    exhibition, the website
+                    of Synthetic Biology interactive video and the official website of iGEM.</p>
+                <div class="exhibits">
+                    <div class="rotationChart">
+                        <img :src="rotationChart3.picture[rotationChart3.number]" alt="">
+                        <div id="text"><button @click="switchLastImg(rotationChart3)">
+                                < </button>{{rotationChart3.name}}<button
+                                        @click="switchNextImg(rotationChart3)">></button>
+                        </div>
+                    </div>
+                </div>
+                <p>Attendees will be able to give these souvenirs to their family, friends, classmates and colleagues to
+                    share their
+                    experience in the exhibition, and when they scan the QR code on the back of the sticker, they will
+                    be able to
+                    learn more about synthetic biology and M:RMS at the same time, so that more and more people will
+                    come to the
+                    exhibition to experience. <strong>In this positive feedback loop, synthetic biology will be carried
+                        further by
+                        more people.</strong></p>
+                <p>At the same time, we have decided to open the bilingual PDF version of the exhibition planning book
+                    for viewing
+                    and downloading.</p>
+                <img src="https://2021.igem.org/wiki/images/6/64/T--CPU_CHINA--MRMS--3_planning_book_cover.png" alt="">
+                <p class="imgdescribe center">Fig. 3 planning book cover</p>
+                <p>We would like to <strong>share our creative ideas</strong> with everyone who sees this exhibition,
+                    especially
+                    those who are or will be in the field of iGEM Human Practices. We hope that our small step will give
+                    you more
+                    inspiration and hope that you will <strong>bring more humane vitality to Synthetic Biology</strong>.
+                </p>
+                <div id="downLoad">
+                    <span>Overall Planning Of M:RMS.pdf</span>
+                    <a href="https://2021.igem.org/wiki/images/0/05/T--CPU_CHINA--MRMS--Overall_planning_of_the_MRMS_exhibition.pdf"
+                        download>ACCESS</a>
+                </div>
+            </div>
+            <div class="section" id="section5">
+                <h2 class="mume-header" id="accessibility">ACCESSIBILITY</h2>
+
+                <p>Due to the impact of COVID-19, some people are unable to visit in person; In line with local epidemic
+                    prevention
+                    measures, we also had to control the density of people in small spaces. Therefore, in order to
+                    increase the
+                    <strong>accessibility</strong> of M:RMS in terms of spatial distance and target population, we
+                    provide the
+                    public with the
+                    way of online exhibition viewing. We release the online exhibition version through
+                    <strong>Wechat</strong>, the
+                    social platform with the most users in China. At present, the total page views has reached XXX.
+                    According to the
+                    system research feedback, XXX% of the public feedback has benefited greatly.
+                </p>
+                <img src="https://2021.igem.org/wiki/images/1/19/T--CPU_CHINA--MRMS--4_MRMS_Wechat_online_exhibition.png"
+                    alt="">
+                <p class="imgdescribe center">Fig. 4 MRMS Wechat online exhibition</p>
+                <p>In addition, it is worth mentioning that in the <strong><a
+                            href="https://2021.igem.org/Team:CPU_CHINA/Art">selection of color</a></strong>, we keep the
+                    same style as wiki and presentation, and also consider different types of color blindness patients
+                    for our
+                    exhibition. When we simulated our applied colors in the visual impairment simulator, the results
+                    showed a significant distinction in chromatic abbrration between the three colors, which means that
+                    our content is accessibility-friendly to the majority of people with color blindness.</p>
+                <img src="https://2021.igem.org/wiki/images/f/fe/T--CPU_CHINA--MRMS--5_COLORCARD.PNG" alt="">
+                <p class="imgdescribe center">Fig. 5 COLORCARD</p>
+            </div>
+            <div class="section" id="section6">
+                <h2 class="mume-header" id="sublimation">SUBLIMATION</h2>
+
+                <p>A stereotype often exists that academic competition always means the cession and sacrifice of
+                    artistic
+                    aesthetics. However, we don't think so. Although advanced scientific content requires certain
+                    seriousness and
+                    rigor in expression, excellent artistic visualization can add to the icing on the cake for the
+                    popularization of
+                    science. Fortunately, iGEM is a competition that encourages participants to focus on the humanities
+                    and be
+                    creative, so our team is always trying to find a balance between art and science.</p>
+                <p>By chance, an idea of a public art exhibition suddenly sprang up in our minds.</p>
+                <img src="https://2021.igem.org/wiki/index.php?title=Special:Upload&wpDestFile=T--CPU_CHINA--MRMS--6_Poster_of_MRMS.png&wpForReUpload=1"
+                    alt="">
+                <p class="imgdescribe center">Fig. 6 Poster of MRMS</p>
+                <p>In our opinion, the definition of Public Art is not limited to the publicity on media, but can also
+                    be
+                    extended to
+                    objects. In other words, Public Art can also be understood as art suitable for the general Public
+                    to
+                    understand, accept and participate in.</p>
+                <img src="https://2021.igem.org/wiki/index.php?title=Special:Upload&wpDestFile=T--CPU_CHINA--MRMS--7_PUBLICEnglish_CARD.png&wpForReUpload=1"
+                    alt="">
+                <p class="imgdescribe center">Fig. 7 PUBLICEnglish CARD</p>
+                <p>At such a meeting point of science and art, orthodox biological art always seems to query the
+                    existence of time
+                    and the universe, or pursue the height of philosophy and history. He's really more like a wise,
+                    taciturn old
+                    man you can only look up to, and unlike "the purpose of science is to give you
+                    answers", his
+                    attitude always seems to be:</p>
+                <p>I'm not going to give you the answer, because I don't know what the answer is.</p>
+                <p>By contrast, public art, which focuses on the popularization of science, is more like a liberal young
+                    man.
+                    Although he has not measured the scale of life, nor has the ambition to rewrite the rule of world,
+                    he stands in
+                    front of you and tells you:</p>
+                <p><strong>I know there is an answer, and I wish you to find it out by yourself.</strong></p>
+                <p>We believe that this public art exhibition not only develops the new field of Human Practices in
+                    iGEM, but also
+                    initiates a popular science revolution on synthetic biology.</p>
+                <p>The star of synthetic biology seems to have been re-lit long ago. As a result, the exhibition
+                    will go on
+                    forever in its own form.</p>
+                <img src="#" alt="">
+                <p class="imgdescribe center">Fig. 8 Heart of Meddy</p>
+                <p>Just like this shining blue star.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer>
+        <div id="sponsor">
+            <img src="https://2021.igem.org/wiki/images/3/31/T--CPU_CHINA--Logoes.jpg" alt="">
+        </div>
+
+
+        <div id="connect">
+            <h4>Contact us</h4>
+            <ul id="contact">
+                <li>
+                    <a href="https://weibo.com/u/6054819039">
+                        <img src="https://2021.igem.org/wiki/images/b/ba/T--CPU_CHINA--weibologo.png" alt="">
+                        <p>@CPU_CHINA2021</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:cpu_china2021@163.com">
+                        <img src="https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--emailLogo.png" alt="">
+                        <p>cpu_china2021@163.com</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="https://2021.igem.org/wiki/images/9/98/T--CPU_CHINA--GithubLogo.png" alt="">
+                        <p>Like our Website?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://international.cpu.edu.cn/">
+                        <img src="https://2021.igem.org/wiki/images/4/42/T--CPU_CHINA--CPUlogo.png" alt="">
+                        <p>International Communication</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/VueJS &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/Jquery &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script>
+        //存放图片路径的数组
+        var imgSrcArr = [
+            "https://2021.igem.org/wiki/images/f/f9/T--CPU_CHINA--MRMS--Right.png",
+            "https://2021.igem.org/wiki/images/f/f1/T--CPU_CHINA--MRMS--Down.png",
+            "https://2021.igem.org/wiki/images/0/02/T--CPU_CHINA--MRMS--A0.png",
+            "https://2021.igem.org/wiki/images/6/66/T--CPU_CHINA--MRMS--B0.png",
+            "https://2021.igem.org/wiki/images/d/d9/T--CPU_CHINA--MRMS--C0.png",
+            "https://2021.igem.org/wiki/images/7/7d/T--CPU_CHINA--MRMS--A1-1.png",
+            "https://2021.igem.org/wiki/images/5/5e/T--CPU_CHINA--MRMS--A1-2.jpg",
+            "https://2021.igem.org/wiki/images/5/5d/T--CPU_CHINA--MRMS--A2-1.jpg",
+            "https://2021.igem.org/wiki/images/4/45/T--CPU_CHINA--MRMS--A2-2.gif",
+            "https://2021.igem.org/wiki/images/2/24/T--CPU_CHINA--MRMS--A3-1.jpg",
+            "https://2021.igem.org/wiki/images/9/90/T--CPU_CHINA--MRMS--A3-2.jpg",
+            "https://2021.igem.org/wiki/images/7/7a/T--CPU_CHINA--MRMS--A3-3.png",
+            "https://2021.igem.org/wiki/images/f/f5/T--CPU_CHINA--MRMS--A3-4.png",
+            "https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--MRMS--A4-1.jpg",
+            "https://2021.igem.org/wiki/images/5/52/T--CPU_CHINA--MRMS--A4-2.jpg",
+            "https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--MRMS--A5-1.png",
+            "https://2021.igem.org/wiki/images/a/ab/T--CPU_CHINA--MRMS--A5-2.jpg",
+            "https://2021.igem.org/wiki/images/8/8d/T--CPU_CHINA--MRMS--A5-3.jpg",
+            "https://2021.igem.org/wiki/images/c/c3/T--CPU_CHINA--MRMS--A6-1.jpg",
+            "https://2021.igem.org/wiki/images/4/4a/T--CPU_CHINA--MRMS--A6-2.jpg",
+            "https://2021.igem.org/wiki/images/e/e8/T--CPU_CHINA--MRMS--A6-3.jpg",
+            "https://2021.igem.org/wiki/images/e/e0/T--CPU_CHINA--MRMS--B1-1.png",
+            "https://2021.igem.org/wiki/images/9/90/T--CPU_CHINA--MRMS--B1-2.jpg",
+            "https://2021.igem.org/wiki/images/2/2a/T--CPU_CHINA--MRMS--B2-1.PNG",
+            "https://2021.igem.org/wiki/images/d/d3/T--CPU_CHINA--MRMS--B2-2.png",
+            "https://2021.igem.org/wiki/images/8/86/T--CPU_CHINA--MRMS--B2-3.png",
+            "https://2021.igem.org/wiki/images/8/8c/T--CPU_CHINA--MRMS--B2-4.jpg",
+            "https://2021.igem.org/wiki/images/5/57/T--CPU_CHINA--MRMS--B3-1.jpg",
+            "https://2021.igem.org/wiki/images/9/94/T--CPU_CHINA--MRMS--B3-2.png",
+            "https://2021.igem.org/wiki/images/2/2f/T--CPU_CHINA--MRMS--B3-3.png",
+            "https://2021.igem.org/wiki/images/7/7b/T--CPU_CHINA--MRMS--B3-4.jpg",
+            "https://2021.igem.org/wiki/images/d/d1/T--CPU_CHINA--MRMS--B4-1.png",
+            "https://2021.igem.org/wiki/images/e/ec/T--CPU_CHINA--MRMS--B4-2.png",
+            "https://2021.igem.org/wiki/images/b/b1/T--CPU_CHINA--MRMS--B4-3.jpg",
+            "https://2021.igem.org/wiki/images/8/82/T--CPU_CHINA--MRMS--B4-4.jpg",
+            "https://2021.igem.org/wiki/images/b/ba/T--CPU_CHINA--MRMS--C1-1.png",
+            "https://2021.igem.org/wiki/images/6/63/T--CPU_CHINA--MRMS--C1-2.png",
+            "https://2021.igem.org/wiki/images/8/87/T--CPU_CHINA--MRMS--C2-1.png",
+            "https://2021.igem.org/wiki/images/9/97/T--CPU_CHINA--MRMS--C2-2.jpg",
+            "https://2021.igem.org/wiki/images/0/0b/T--CPU_CHINA--MRMS--C2-3.jpg",
+            "https://2021.igem.org/wiki/images/4/49/T--CPU_CHINA--MRMS--C2-4.jpg",
+            "https://2021.igem.org/wiki/images/d/d8/T--CPU_CHINA--MRMS--C2-5.jpg",
+            "https://2021.igem.org/wiki/images/b/ba/T--CPU_CHINA--MRMS--C1-1.png",
+            "https://2021.igem.org/wiki/images/6/63/T--CPU_CHINA--MRMS--C1-2.png",
+            "https://2021.igem.org/wiki/images/b/b0/T--CPU_CHINA--MRMS--C3-3.png",
+            "https://2021.igem.org/wiki/images/4/48/T--CPU_CHINA--MRMS--comic-1.PNG",
+            "https://2021.igem.org/wiki/images/e/e0/T--CPU_CHINA--MRMS--comic-2.PNG",
+            "https://2021.igem.org/wiki/images/b/b8/T--CPU_CHINA--MRMS--comic-3.PNG",
+            "https://2021.igem.org/wiki/images/4/4a/T--CPU_CHINA--MRMS--comic-4.png",
+            "https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--MRMS--comic-5.png",
+            "https://2021.igem.org/wiki/images/b/b7/T--CPU_CHINA--MRMS--comic-6.PNG",
+            "https://2021.igem.org/wiki/images/9/91/T--CPU_CHINA--MRMS--AM1.png",
+            "https://2021.igem.org/wiki/images/0/00/T--CPU_CHINA--MRMS--AM2.png",
+            "https://2021.igem.org/wiki/images/f/ff/T--CPU_CHINA--MRMS--AM3.png",
+            "https://2021.igem.org/wiki/images/d/d1/T--CPU_CHINA--MRMS--SAP4.1.jpg",
+            "https://2021.igem.org/wiki/images/d/d2/T--CPU_CHINA--MRMS--SAP4.2.jpg",
+            "https://2021.igem.org/wiki/images/1/11/T--CPU_CHINA--MRMS--SAP4.3.jpg",
+            "https://2021.igem.org/wiki/images/4/47/T--CPU_CHINA--MRMS--SAP4.4.jpg"
+        ];
+
+        var imgWrap = [];
+
+        function preloadImg(arr) {
+            for (var i = 0; i < arr.length; i++) {
+                imgWrap[i] = new Image();
+                imgWrap[i].src = arr[i];
+            }
+        }
+
+        preloadImg(imgSrcArr);
+
+        //或者延迟的文档加载完毕在加载图片
+
+        $(function () {
+            preloadImg(imgSrcArr);
+        })
+
+    </script>
+    <script>
+        // 展品
+        var contain = new Vue({
+            el: "#contain",
+            data: {
+                direction: {
+                    "false": "https://2021.igem.org/wiki/images/f/f9/T--CPU_CHINA--MRMS--Right.png",
+                    "true": "https://2021.igem.org/wiki/images/f/f1/T--CPU_CHINA--MRMS--Down.png"
+                },
+                zone1: {
+                    img: "https://2021.igem.org/wiki/images/0/02/T--CPU_CHINA--MRMS--A0.png",
+                    open: "false",
+                    exhibitList: [
+                        {
+                            index: "A1",
+                            number: 0,
+                            name: "Lost In Plastics",
+                            briefText: "<p>Starting Words * A brief introduction to the background of the polyethylene plastic crisis.</p>",
+                            picture: ["https://2021.igem.org/wiki/images/7/7d/T--CPU_CHINA--MRMS--A1-1.png",
+                                "https://2021.igem.org/wiki/images/5/5e/T--CPU_CHINA--MRMS--A1-2.jpg",
+                            ]
+                        },
+                        {
+                            index: "A2",
+                            number: 0,
+                            name: "One Order One Discard",
+                            briefText: "<p>The top is a loop of animation: With Meddy's finger gently sliding, goods are immediately delivered to his hand, and the packaging bag instantly turned into plastic waste. Below is a mountain of discarded packaging bags.</p><p>One day, plastic will make it difficult for you to move a single step.</p>",
+                            picture: ["https://2021.igem.org/wiki/images/5/5d/T--CPU_CHINA--MRMS--A2-1.jpg",
+                                "https://2021.igem.org/wiki/images/4/45/T--CPU_CHINA--MRMS--A2-2.gif"
+                            ]
+                        },
+                        {
+                            index: "A3",
+                            number: 0,
+                            name: "Buried",
+                            briefText: "<p>Interactive Points * If visitors have used plastic bags today, they can take plastic bags from the material placement point besides them and paste them on this wall.</p><p><strong>Congratulations on being one of the accomplices for the destruction of earth's environment!</strong></p>",
+                            picture: ["https://2021.igem.org/wiki/images/2/24/T--CPU_CHINA--MRMS--A3-1.jpg",
+                                "https://2021.igem.org/wiki/images/9/90/T--CPU_CHINA--MRMS--A3-2.jpg",
+                                "https://2021.igem.org/wiki/images/7/7a/T--CPU_CHINA--MRMS--A3-3.png",
+                                "https://2021.igem.org/wiki/images/f/f5/T--CPU_CHINA--MRMS--A3-4.png"
+                            ]
+                        },
+                        {
+                            index: "A4",
+                            number: 0,
+                            name: "Stardiac Congestion",
+                            briefText: "<p>Polyethylene can't be degraded by Aspirin combined with clopidogrel.</p>",
+                            picture: ["https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--MRMS--A4-1.jpg",
+                                "https://2021.igem.org/wiki/images/5/52/T--CPU_CHINA--MRMS--A4-2.jpg"
+                            ]
+                        },
+                        {
+                            index: "A5",
+                            number: 0,
+                            name: "Scene of Death",
+                            briefText: "<p>Interactive Points * Staff members will distribute flowers to participants. The flowers will be inserted into an inflatable plastic bouquet by you, the finder of death.</p><p>Will there be only plastic flowers on our tombstones one day? Well, if it's so hard to degrade, it'll save the mourners a lot of trouble.</p>",
+                            picture: ["https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--MRMS--A5-1.png",
+                                "https://2021.igem.org/wiki/images/a/ab/T--CPU_CHINA--MRMS--A5-2.jpg",
+                                "https://2021.igem.org/wiki/images/8/8d/T--CPU_CHINA--MRMS--A5-3.jpg"
+                            ]
+                        },
+                        {
+                            index: "A6",
+                            number: 0,
+                            name: "Soul Guider",
+                            briefText: "<p>With the words SYNBIO on the top, Meddy in his psychic state walks towards the direction of the light.</p><p><strong>Will Synthetic Biology bring light to the world? Or is it the light itself?</strong></p>",
+                            picture: ["https://2021.igem.org/wiki/images/c/c3/T--CPU_CHINA--MRMS--A6-1.jpg",
+                                "https://2021.igem.org/wiki/images/4/4a/T--CPU_CHINA--MRMS--A6-2.jpg",
+                                "https://2021.igem.org/wiki/images/e/e8/T--CPU_CHINA--MRMS--A6-3.jpg"
+                            ]
+                        }
+                    ]
+
+                },
+                zone2: {
+                    img: "https://2021.igem.org/wiki/images/d/d9/T--CPU_CHINA--MRMS--C0.png",
+                    open: "false",
+                    exhibitList: [
+                        {
+                            index: "B1",
+                            number: 0,
+                            name: "Starchaser",
+                            briefText: "<p>Starting Words * An Introduction to Synthetic Biology</p>",
+                            picture: ["https://2021.igem.org/wiki/images/e/e0/T--CPU_CHINA--MRMS--B1-1.png",
+                                "https://2021.igem.org/wiki/images/9/90/T--CPU_CHINA--MRMS--B1-2.jpg"
+                            ]
+                        },
+                        {
+                            index: "B2",
+                            number: 0,
+                            name: "Bacteria Factory",
+                            briefText: "<p>Interactive Points * In the Education project, we prepared <strong>Bacteria Factory Color Cards</strong> for primary and middle school students, and asked them to draw their own projects with creativity and imagination at the end of the cards. As a result, we have collected many interesting children's works, which will also be exhibited in the exhibition.</p><p>So synthetic biology allows us to build a factory in bacteria to express proteins? !</p>",
+                            picture: ["https://2021.igem.org/wiki/images/2/2a/T--CPU_CHINA--MRMS--B2-1.PNG",
+                                "https://2021.igem.org/wiki/images/d/d3/T--CPU_CHINA--MRMS--B2-2.png",
+                                "https://2021.igem.org/wiki/images/8/86/T--CPU_CHINA--MRMS--B2-3.png",
+                                "https://2021.igem.org/wiki/images/8/8c/T--CPU_CHINA--MRMS--B2-4.jpg"
+                            ]
+                        },
+                        {
+                            index: "B3",
+                            number: 0,
+                            name: "Polyethylene Prison",
+                            briefText: "<p>Interactive Points * Layer by layer, uncover the details of polyethylene in the iron net until its weaknesses are fully exposed.</p><p>Once upon a time, the unbreakable chain structure of polyethylene was rooted in the earth like a crisscrossing network of iron. And <strong>what's locked in this metal cage is not just the future of this planet</strong>.</p>",
+                            picture: ["https://2021.igem.org/wiki/images/5/57/T--CPU_CHINA--MRMS--B3-1.jpg",
+                                "https://2021.igem.org/wiki/images/9/94/T--CPU_CHINA--MRMS--B3-2.png",
+                                "https://2021.igem.org/wiki/images/2/2f/T--CPU_CHINA--MRMS--B3-3.png",
+                                "https://2021.igem.org/wiki/images/7/7b/T--CPU_CHINA--MRMS--B3-4.jpg"
+                            ]
+                        },
+                        {
+                            index: "B4",
+                            number: 0,
+                            name: "Priscription For The Earth",
+                            briefText: "<p>Interactive Points * <strong>A digital interactive animation</strong> where Systematic science popularization is combined with practical application. Synthetic biology knowledge collected in the exploration process are used to solve simple problems. In order to increase the accessibility and participation degree of this exhibit, we will launch interactive videos of the replica version on Bilibili, **one of the largest video websites in China **. For details, please follow the bilibili account <strong>CPU_CHINA2021</strong>.</p><p>It's more like a process of medical questing: you suffer from a malignant disease called plastic pollution, you hear about a pioneering doctor called synthetic biology, you're told that a virus called polyethylene is disrupting furtively, and you're offered a wonderful prescription that offers a chance for healing.</p>",
+                            picture: ["https://2021.igem.org/wiki/images/d/d1/T--CPU_CHINA--MRMS--B4-1.png",
+                                "https://2021.igem.org/wiki/images/e/ec/T--CPU_CHINA--MRMS--B4-2.png",
+                                "https://2021.igem.org/wiki/images/b/b1/T--CPU_CHINA--MRMS--B4-3.jpg",
+                                "https://2021.igem.org/wiki/images/8/82/T--CPU_CHINA--MRMS--B4-4.jpg"
+                            ]
+                        }
+                    ]
+
+                },
+                zone3: {
+                    img: "https://2021.igem.org/wiki/images/6/66/T--CPU_CHINA--MRMS--B0.png",
+                    open: "false",
+                    exhibitList: [
+                        {
+                            index: "C1",
+                            number: 0,
+                            name: "Polyethyiene Degradist",
+                            briefText: "<p>Starting Words * Introduction to project of CPU_CHINA <em><strong>PEDe.</strong></em></p>",
+                            picture: ["https://2021.igem.org/wiki/images/b/ba/T--CPU_CHINA--MRMS--C1-1.png",
+                                "https://2021.igem.org/wiki/images/6/63/T--CPU_CHINA--MRMS--C1-2.png"
+                            ]
+                        },
+                        {
+                            index: "C2",
+                            number: 0,
+                            name: "Blueprint for Live Science",
+                            briefText: "<p>Interactive Points * The location information of each part of the plasmid corresponds to a coordinate on the sponge wall in reality. The participants placed pins in sequence according to the coordinate and surrounded them with lines to form a closed graph.</p><p>When all the circuits are completed, on the one hand, it means that our proteins are generated according to this logical circuit in the experiment, and on the other hand, it means that our molecular machine blueprint is completed by cotton thread in the actual exhibition. (Corresponding to the virtual form of molecular machine displayed in B4 Earth Prescription)</p>",
+                            picture: ["https://2021.igem.org/wiki/images/8/87/T--CPU_CHINA--MRMS--C2-1.png",
+                                "https://2021.igem.org/wiki/images/9/97/T--CPU_CHINA--MRMS--C2-2.jpg",
+                                "https://2021.igem.org/wiki/images/0/0b/T--CPU_CHINA--MRMS--C2-3.jpg",
+                                "https://2021.igem.org/wiki/images/4/49/T--CPU_CHINA--MRMS--C2-4.jpg",
+                                "https://2021.igem.org/wiki/images/d/d8/T--CPU_CHINA--MRMS--C2-5.jpg"
+                            ]
+                        },
+                        {
+                            index: "C3",
+                            number: 0,
+                            name: "Relight My Star",
+                            briefText: "<p>SHINING AS MY HEART</p>",
+                            picture: ["https://2021.igem.org/wiki/images/b/ba/T--CPU_CHINA--MRMS--C1-1.png",
+                                "https://2021.igem.org/wiki/images/6/63/T--CPU_CHINA--MRMS--C1-2.png",
+                                "https://2021.igem.org/wiki/images/b/b0/T--CPU_CHINA--MRMS--C3-3.png"
+                            ]
+                        }
+                    ]
+                },
+                rotationChart1: {
+                    number: 0,
+                    name: "Meddy in Wonderland synbio comic strip",
+                    picture: ["https://2021.igem.org/wiki/images/4/48/T--CPU_CHINA--MRMS--comic-1.PNG",
+                        "https://2021.igem.org/wiki/images/e/e0/T--CPU_CHINA--MRMS--comic-2.PNG",
+                        "https://2021.igem.org/wiki/images/b/b8/T--CPU_CHINA--MRMS--comic-3.PNG",
+                        "https://2021.igem.org/wiki/images/4/4a/T--CPU_CHINA--MRMS--comic-4.png",
+                        "https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--MRMS--comic-5.png",
+                        "https://2021.igem.org/wiki/images/b/b7/T--CPU_CHINA--MRMS--comic-6.PNG"
+                    ]
+                },
+                rotationChart2: {
+                    number: 0,
+                    name: "Attendees Messages",
+                    picture: ["https://2021.igem.org/wiki/images/9/91/T--CPU_CHINA--MRMS--AM1.png",
+                        "https://2021.igem.org/wiki/images/0/00/T--CPU_CHINA--MRMS--AM2.png",
+                        "https://2021.igem.org/wiki/images/f/ff/T--CPU_CHINA--MRMS--AM3.png"
+                    ]
+                },
+                rotationChart3: {
+                    number: 0,
+                    name: "Stickers And Postcards",
+                    picture: ["https://2021.igem.org/wiki/images/d/d1/T--CPU_CHINA--MRMS--SAP4.1.jpg",
+                        "https://2021.igem.org/wiki/images/d/d2/T--CPU_CHINA--MRMS--SAP4.2.jpg",
+                        "https://2021.igem.org/wiki/images/1/11/T--CPU_CHINA--MRMS--SAP4.3.jpg",
+                        "https://2021.igem.org/wiki/images/4/47/T--CPU_CHINA--MRMS--SAP4.4.jpg"
+                    ]
+                },
+            },
+            methods: {
+                switchLastImg(item) {
+                    if (item.number == 0) {
+                        item.number = item.picture.length;
+                    }
+                    item.number--;
+                },
+                switchNextImg(item) {
+                    if (item.number == item.picture.length - 1) {
+                        item.number = -1
+                    }
+                    item.number++;
+                },
+                open(item) {
+                    if (item.open == "true") {
+                        item.open = "false"
+                    } else {
+                        item.open = "true"
+                    }
+                }
+            }
+        })
+    </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_JS &action=raw&amp;ctype=text/javascript"></script>
+</body>
+
+</html>

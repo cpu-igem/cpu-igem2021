@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Description</title>
+    <link rel="stylesheet"
+        href="https://2017.igem.org/wiki/index.php?title= Template:SCU_China/default_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/contentCommon.css">
+    <style>
+        #header #title {
+            left: 20%;
+        }
+
+        #contain .left img {
+            position: absolute;
+            width: 80%;
+            top: 130px;
+            left: 12%;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div id="load" v-show="loading"><img src="./data/T--CPU_CHINA--loading.gif" alt=""></div>
+        <div id="menu">
+            <div id="menuBack" v-show="isOpen" :class="isActive" @click="ifclick"></div>
+            <a href="../index.html"><img id="logo" src="./data/T--CPU_CHINA--ProjectLogo.png" alt="项目logo"></a>
+            <div id="select" @mouseleave="leave" @mouseover="on">
+                <img id="menuImg" :src="menu" alt="这是菜单图片" @mouseover="mouseover" @click="click">
+                <ul id="class-a" class="class" v-show="classA">
+                    <li v-for="(item,index) in classList" :class="isActiveA == index? 'class-a' : ''"
+                        @click="classAClick(index)">{{item}}</li>
+                </ul>
+                <ul id="class-b" class="class" v-show="classB">
+                    <li v-for="item in classList2[isActiveA]" :class="isActiveB == item.num? 'class-b' : ''"
+                        @mouseover="classBOver(item.num)" @mouseleave="classBLeave(item.num)"><a :href="item.url">
+                            {{item.text}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <img class="background" src="./data/TopBackground/1 project/T--CPU_CHINA--Description--Background.png" alt="">
+        <h1 id="title">DESCRIPTION</h1>
+        <svg width="100%" height="100%" viewBox="0 0 1920 600" version="1.1"
+            style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <g transform="matrix(1.16285,0,0,1.38837,253.426,-231.748)">
+                <g id="AD1">
+                    <path id="凹形遮罩"
+                        d="M1433.18,439.801C1433.18,439.801 1001.08,524.071 607.621,524.374C219.99,524.673 -217.935,439.801 -217.935,439.801L-217.935,944.811L1433.18,944.811L1433.18,439.801Z"
+                        style="fill:#FAFAFA;" />
+                </g>
+            </g>
+        </svg>
+    </header>
+    <div id="contain" class=" clearfix">
+        <div class="left clearfix">
+            <svg class="Frosting" width="70%" height="230px">
+                <defs>
+                    <pattern id="cardBg" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <image opacity="0.5" width="100" height="100" xlink:href="./data/T--CPU_CHINA--Frosting1.png" />
+                        <image class="fillLight" opacity="0.5" width="100" height="100"
+                            xlink:href="./data/T--CPU_CHINA--Frosting2.png" />
+                    </pattern>
+                </defs>
+                <g class="main">
+                    <g class="card">
+                        <rect fill="none" stroke="#ccc" opacity="0.75" stroke-width="3" width="100%" height="100%"
+                            rx="10" ry="10" opacity="0.6" />
+                        <rect fill="url(#cardBg)" width="100%" height="100%" rx="11" ry="11" opacity="0.6" />
+                    </g>
+                </g>
+            </svg>
+            <nav>
+                <div class="catalogue-title">DESCRIPTION</div>
+                <ul class="catalogue">
+                    <li class="num">
+                        <a href="#section1" title="INSPIRATION">INSPIRATION</a>
+                    </li>
+                    <li class="num">
+                        <a href="#section2" title="OUR SOLUTION">OUR SOLUTION</a>
+                    </li>
+                </ul>
+            </nav>
+            <img src="./data/Left/T--CPU_CHINA--walking.png" alt="">
+        </div>
+        <div id="detail" class="clearfix">
+            <div class="section" id="section1">
+                <h2 id='inspiration'><strong><span>INSPIRATION</span></strong><span> </span></h2>
+                <p><span>With the rapid development of e-commerce, China has witnessed a sharp increase in the delivery
+                        volume of packages. To avoid the damage of goods during transportation, applying a certain
+                        degree of
+                        packagings is of great necessity. However, these packagings always end up as garbage for
+                        consumers.
+                    </span></p>
+                <p><span>In 2020, there are </span><strong><span>83.36 billion</span></strong><span> pieces of parcels
+                        in
+                        China, leading to more than </span><strong><span>9 million tons</span></strong><span> of wasted
+                        paper and </span><strong><span>1.8 million tons</span></strong><span> of wasted plastic. It is
+                        anticipated that material consumption caused by express packagings will reach
+                    </span><strong><span>41.2705 million tons</span></strong><span> by 2050, which imposes enormous
+                        strains
+                        on the environment.</span></p>
+                <p><span>(补一张数据图)</span></p>
+                <p><span>Among these wasted packaging materials, most of the plastic is hard to be degraded.</span></p>
+                <p><span>The lack of proper disposal methods, together with the high cost and low profit in recent
+                        recycling
+                        conditions, all account for the actuality that about 99% of plastic waste is eventually sent to
+                        incineration plants or refuse landfill, where its disposal is the same way as household waste.
+                        In
+                        this situation, resources are massively lost while the environment is severely polluted.</span>
+                </p>
+                <p><span>It is worth noting that authorities concerned have launched some policies to impose
+                        restrictions on
+                        the production, circulation, consumption and recycle of plastic materials in recent years. This
+                        action attaches extraordinary importance to plastic disposal.</span></p>
+                <p><span>Considering factors all above, we felt an obligation to do something to improve the present
+                        situation. By researching and interviewing, we got to know that the disposal of polyethylene
+                        (PE),
+                        the very material widely used in plastic packages, is a thorny issue, due to the vacuum of ideal
+                        treatment strategy. Therefore, our team planned to focus on inventing novel methods to degrade
+                        PE.</span></p>
+                <p><span>（可以补一张HP采访图）</span></p>
+                <p><span>However, because of its high molecular weight, strong hydrophobicity and low interface energy,
+                        the
+                        biodegradation process of PE requires hundreds of years for it to completely break down into
+                        water
+                        and carbon dioxide without any human engagement.</span></p>
+                <p><span>Thanks to some inspiring reports, we learnt that there are certain kinds of fungus own the
+                        ability
+                        to decompose compounds similar to PE. An idea of creating a PE-degrading enzyme complex flew
+                        into
+                        our minds. Taking biosafety into our consideration, we focused on synthetic biology-based
+                        measures
+                        and decided to construct a cell-free system to degrade PE in a more effective way.</span></p>
+            </div>
+            <div class="section" id="section2">
+                <h2>OUR SOLUTION</h2>
+                <p><span>Facing the imperious demand for an efficient way to dispose PE, we came up with the design of
+                        this
+                        system. We chose manganese peroxidase (MnP) to oxidize and degrade PE with the assistance of
+                        aryl
+                        alcohol oxidase (AAO). Then, we added hydrophobin-1 (HFB1), a type of amphipathic protein, to
+                        make
+                        it easier for the peroxidase to get closer to substrate and therefore improve its efficiency.
+                        These
+                        parts were eventually united by CRISPR/dCas9 system and SpyCatcher/SpyTag system into a
+                        programmable
+                        assembly, whose spatial distance and proportion can be controlled. It is hoped that our project
+                        can
+                        serve as an efficient disposal method of PE. Taking care of our shared environment by this tiny
+                        but
+                        delicate system, we are devoting ourselves to make the world a better one.</span></p>
+                <p><span>(补一张总图？)</span></p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    </div>
+    <footer>
+        <div id="sponsor">
+            <img src="./data/Bottom/T--CPU_CHINA--Logoes.png" alt="">
+        </div>
+        <div id="connect">
+            <h4>Contact us</h4>
+            <ul id="contact">
+                <li>
+                    <a href="https://weibo.com/u/6054819039">
+                        <img src="./data/Bottom/T--CPU_CHINA--weibologo.png" alt="">
+                        <p>@CPU_CHINA2021</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:cpu_china2021@163.com">
+                        <img src="./data/Bottom/T--CPU_CHINA--emailLogo.png" alt="">
+                        <p>cpu_china2021@163.com</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://international.cpu.edu.cn/">
+                        <img src="./data/Bottom/T--CPU_CHINA--CPUlogo.png" alt="">
+                        <p>Interational Communication</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/VueJS &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/Jquery &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script src="./js/common.js"></script>
+</body>
+
+</html>

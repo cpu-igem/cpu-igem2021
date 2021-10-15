@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://2017.igem.org/wiki/index.php?title= Template:SCU_China/default_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/reset_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/contentCommon_CSS &action=raw&ctype=text/css">
+    <style>
+        #header #title {
+            left: 15%;
+        }
+
+        #contain .left img {
+            position: absolute;
+            width: 70%;
+            top: 130px;
+            left: 12%;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div id="load" v-show="loading"><img src="https://2021.igem.org/wiki/images/c/c4/T--CPU_CHINA--loading.gif"
+                alt=""></div>
+        <div id="menu">
+            <div id="menuBack" v-show="isOpen" :class="isActive" @click="ifclick"></div>
+            <a href="https://2021.igem.org/Team:CPU_CHINA"><img id="logo"
+                    src="https://2021.igem.org/wiki/images/d/d5/T--CPU_CHINA--ProjectLogo.png" alt="项目logo"></a>
+            <div id="select" @mouseleave="leave" @mouseover="on">
+                <img id="menuImg" :src="menu" alt="这是菜单图片" @mouseover="mouseover" @click="click">
+                <ul id="class-a" class="class" v-show="classA">
+                    <li v-for="(item,index) in classList" :class="isActiveA == index? 'class-a' : ''"
+                        @click="classAClick(index)">{{item}}</li>
+                </ul>
+                <ul id="class-b" class="class" v-show="classB">
+                    <li v-for="item in classList2[isActiveA]" :class="isActiveB == item.num? 'class-b' : ''"
+                        @mouseover="classBOver(item.num)" @mouseleave="classBLeave(item.num)"><a :href="item.url">
+                            {{item.text}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <img class="background" src="https://2021.igem.org/wiki/images/c/cf/T--CPU_CHINA--Parts--background.png" alt="">
+        <h1 id="title">CONTRIBUTIONS</h1>
+        <svg width="100%" height="100%" viewBox="0 0 1920 600" version="1.1"
+            style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <g transform="matrix(1.16285,0,0,1.38837,253.426,-231.748)">
+                <g id="AD1">
+                    <path id="凹形遮罩"
+                        d="M1433.18,439.801C1433.18,439.801 1001.08,524.071 607.621,524.374C219.99,524.673 -217.935,439.801 -217.935,439.801L-217.935,944.811L1433.18,944.811L1433.18,439.801Z"
+                        style="fill:#FAFAFA;" />
+                </g>
+            </g>
+        </svg>
+    </header>
+    <div id="contain" class=" clearfix">
+        <div class="left clearfix">
+            <svg class="Frosting" width="70%" height="250px">
+                <defs>
+                    <pattern id="cardBg" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <image opacity="0.5" width="100" height="100"
+                            xlink:href="https://2021.igem.org/wiki/images/7/75/T--CPU_CHINA--Frosting1.png" />
+                        <image class="fillLight" opacity="0.5" width="100" height="100"
+                            xlink:href="https://2021.igem.org/wiki/images/f/fd/T--CPU_CHINA--Frosting2.png" />
+                    </pattern>
+                </defs>
+                <g class="main">
+                    <g class="card">
+                        <rect fill="none" stroke="#ccc" opacity="0.75" stroke-width="3" width="100%" height="100%"
+                            rx="10" ry="10" opacity="0.6" />
+                        <rect fill="url(#cardBg)" width="100%" height="100%" rx="11" ry="11" opacity="0.6" />
+                    </g>
+                </g>
+            </svg>
+            <nav>
+                <div class="catalogue-title">CONTRIBUTIONS</div>
+                <ul class="catalogue">
+                    <li class="num">
+                        <a href="#section1" title="OVERVIEW">OVERVIEW</a>
+                    </li>
+
+                    <li class="num">
+                        <a href="#section2" title="CONTRIBUTIONS">CONTRIBUTIONS</a>
+                    </li>
+                </ul>
+            </nav>
+            <img src="https://2021.igem.org/wiki/images/b/b2/T--CPU_CHINA--experimentalize.png" alt="">
+        </div>
+        <div id="detail" class="clearfix">
+            <div class="section" id="section1">
+                <h2 id='overview-1'><span>OVERVIEW</span></h2>
+                <p>&#x200B; Hoping to make a <strong>useful contribution</strong> for future iGEM teams, we completed
+                    the
+                    experimental characterization of an existing part <strong>Ethanol regulated promoter
+                        AOX1</strong>(<a href="http://parts.igem.org/Part:BBa_I764001">BBa_I764001</a>) and
+                    provided new data for it.</p>
+                <figure>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><span>Biobricks</span></th>
+                                <th><span>codes in the lab</span></th>
+                                <th><span>Quantitative Characterization</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_I764001"
+                                            target='_blank'>BBa_I764001</a></span></td>
+                                <td><span>promoter</span></td>
+                                <td><span>fluorescence intensity</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </figure>
+                <p>The <strong>details</strong> are in the part registrations page.</p>
+            </div>
+            <div class="section" id="section2">
+                <h2 id='contribution-2'><span>CONTRIBUTION</span></h2>
+                <p><strong>P<sub>AOX1</sub></strong></p>
+                <p>&#x200B; The <strong>AOX1 promoter</strong>&#xFF08;P<sub>AOX1</sub>&#xFF09; region from <em>Pichia
+                        pastoris</em>.
+                    It was first registered in 2007 and used as a strong promoter in <em>Pichia pastoris</em>. A complex
+                    pathway for
+                    the metabolism of methanol exists within some species of the <em>Komagataella</em> genus.
+                    <strong>Alcohol oxidase
+                        (AO)</strong> appears to be the first and major enzyme produced in this metabolic pathway.
+                    Transcribed from its
+                    gene (AOX1), AO converts <strong>methanol to formaldehyde</strong> within the yeast&apos;s
+                    peroxisome.
+                </p>
+                <p>&#x200B; In order to test the function of P<sub>AOX1</sub>, we construct
+                    &quot;<strong>P<sub>AOX1</sub>-&#x3B1;-factor-sfGFP-AOX1
+                        terminator&quot;(<a href="http://parts.igem.org/Part:BBa_K383050">BBa_K383050</a>)</strong>. If
+                    P<sub>AOX1</sub> is functional, we
+                    can test the <strong>fluorescence intensity</strong> of sfGFP in <strong>supernatant
+                        samples</strong> obtained
+                    from the culture of recombinant <em>P.pastoris</em> GS115 strain.</p>
+                <p>&#x200B; Our results matched the general expected trend (Fig 1). After fermentation experiment in
+                    BMMY medium
+                    containing 0.5% methanol. The <strong>fluorescence intensity</strong> of the supernatant samples of
+                    recombinant
+                    <em>P.pastoris</em> GS115 containing the sfGFP gene gradually <strong>increased over time</strong>,
+                    while that of
+                    wild-type <em>P.pastoris</em> GS115 remained <strong>basically unchanged</strong>, which is in line
+                    with
+                    literature description<sup>[1]</sup>. SDS-PAGE results (Fig 2) also verified this phenomenon, almost
+                    no protein
+                    band before 36 h could be seen. The corresponding protein band <strong>began to appear</strong> at
+                    36 h, and the
+                    clarity and width of the protein band gradually increased over time, which means the AOX1 promoter
+                    can
+                    continuously induce the expression of the protein. At the same time, by measuring <strong>the growth
+                        curve</strong> of the strains (Fig 3), we observed that the OD<sub>600</sub> of the recombinant
+                    <em>P.pastoris</em> GS115 containing the sfGFP gene was <strong>slightly lower</strong> than the
+                    wild-type
+                    <em>P.pastoris</em> GS115 , the phenomenon of which may be attributed to the expression of sfGFP.
+                    The results
+                    showed that the expression of foreign genes would <strong>partly inhibit cell growth</strong>, but
+                    not in an
+                    intensive manner.
+                </p>
+                <img src="https://2021.igem.org/wiki/images/7/72/T--CPU_CHINA--Parts--Contributions--fig1.png"
+                        referrerpolicy="no-referrer">
+                <p class="imgdescribe"><span>Fig. 1 Fluorescence intensity of supernatant samples obtained at
+                        different time points from
+                        the
+                        culture of wild-type <em>P.pastoris</em> GS115 and corresponding recombinant <em>P.pastoris</em>
+                        GS115
+                        containing
+                        sfGFP gene.</span></p>
+                <img src="https://2021.igem.org/wiki/images/f/f2/T--CPU_CHINA--Parts--Contributions--fig2.png"
+                        referrerpolicy="no-referrer"></p>
+                <p class="imgdescribe"><span>Fig. 2 SDS-PAGE gel analysis of supernatant samples of the recombinant
+                        <em>P.pastoris</em> GS115
+                        containing the sfGFP gene during the fermentation</span></p>
+                <p>&nbsp;</p>
+                <img src="https://2021.igem.org/wiki/images/4/44/T--CPU_CHINA--Parts--Contributions--fig3.png"
+                        referrerpolicy="no-referrer">
+                <p class="imgdescribe"><span>Fig. 3 OD</span><sub><span>600</span></sub><span> absorbance obtained at
+                        different time
+                        points
+                        from the culture of wild-type <em>P.pastoris</em> GS115 and recombinant <em>P.pastoris</em>
+                        GS115 that
+                        contains
+                        sfGFP gene</span><span>.</span></p>
+                <p><strong><span>Reference</span></strong></p>
+                <p class="reference"><span>[1] Xuan, Y. </span><em><span>et al.</span></em><span> An upstream activation
+                        sequence controls
+                        the
+                        expression of AOX1 gene in Pichia pastoris. </span><em><span>FEMS yeast
+                            research</span></em><span>,
+                        1271-1282, doi:10.1111/j.1567-1364.2009.00571.x (2009).</span></p>
+            </div>
+
+        </div>
+    </div>
+    <footer>
+        <div id="sponsor">
+            <img src="https://2021.igem.org/wiki/images/3/31/T--CPU_CHINA--Logoes.jpg" alt="">
+        </div>
+        <div id="connect">
+            <h4>Contact us</h4>
+            <ul id="contact">
+                <li>
+                    <a href="https://weibo.com/u/6054819039">
+                        <img src="https://2021.igem.org/wiki/images/b/ba/T--CPU_CHINA--weibologo.png" alt="">
+                        <p>@CPU_CHINA2021</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:cpu_china2021@163.com">
+                        <img src="https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--emailLogo.png" alt="">
+                        <p>cpu_china2021@163.com</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="https://2021.igem.org/wiki/images/9/98/T--CPU_CHINA--GithubLogo.png" alt="">
+                        <p>Like our Website?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://international.cpu.edu.cn/">
+                        <img src="https://2021.igem.org/wiki/images/4/42/T--CPU_CHINA--CPUlogo.png" alt="">
+                        <p>International Communication</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/VueJS &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/Jquery &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_JS &action=raw&amp;ctype=text/javascript"></script>
+</body>
+
+</html>

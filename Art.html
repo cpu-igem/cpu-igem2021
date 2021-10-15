@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://2017.igem.org/wiki/index.php?title= Template:SCU_China/default_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/reset_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/contentCommon_CSS &action=raw&ctype=text/css">
+    <style>
+        #header #title {
+            left: 25%;
+        }
+
+        #contain .left .drug1 {
+            position: absolute;
+            width: 120%;
+            top: 200px;
+            left: -14%;
+            z-index: 1;
+        }
+
+        #contain .left .drug2 {
+            width: 120%;
+            position: absolute;
+            top: 200px;
+            right: -34%;
+            z-index: 3;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div id="load" v-show="loading"><img src="https://2021.igem.org/wiki/images/c/c4/T--CPU_CHINA--loading.gif"
+                alt=""></div>
+        <div id="menu">
+            <div id="menuBack" v-show="isOpen" :class="isActive" @click="ifclick"></div>
+            <a href="https://2021.igem.org/Team:CPU_CHINA"><img id="logo"
+                    src="https://2021.igem.org/wiki/images/d/d5/T--CPU_CHINA--ProjectLogo.png" alt="项目logo"></a>
+            <div id="select" @mouseleave="leave" @mouseover="on">
+                <img id="menuImg" :src="menu" alt="这是菜单图片" @mouseover="mouseover" @click="click">
+                <ul id="class-a" class="class" v-show="classA">
+                    <li v-for="(item,index) in classList" :class="isActiveA == index? 'class-a' : ''"
+                        @click="classAClick(index)">{{item}}</li>
+                </ul>
+                <ul id="class-b" class="class" v-show="classB">
+                    <li v-for="item in classList2[isActiveA]" :class="isActiveB == item.num? 'class-b' : ''"
+                        @mouseover="classBOver(item.num)" @mouseleave="classBLeave(item.num)"><a :href="item.url">
+                            {{item.text}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <img class="background" src="https://2021.igem.org/wiki/images/f/fd/T--CPU_CHINA--Top.png" alt="">
+        <h1 id="title">ART DESIGN</h1>
+        <svg width="100%" height="100%" viewBox="0 0 1920 600" version="1.1"
+            style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <g transform="matrix(1.16285,0,0,1.38837,253.426,-231.748)">
+                <g id="AD1">
+                    <path id="凹形遮罩"
+                        d="M1433.18,439.801C1433.18,439.801 1001.08,524.071 607.621,524.374C219.99,524.673 -217.935,439.801 -217.935,439.801L-217.935,944.811L1433.18,944.811L1433.18,439.801Z"
+                        style="fill:#FAFAFA;" />
+                </g>
+            </g>
+        </svg>
+    </header>
+    <div id="contain" class=" clearfix">
+        <div class="left clearfix">
+            <svg class="Frosting" width="70%" height="300px">
+                <defs>
+                    <pattern id="cardBg" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <image opacity="0.5" width="100" height="100"
+                            xlink:href="https://2021.igem.org/wiki/images/7/75/T--CPU_CHINA--Frosting1.png" />
+                        <image class="fillLight" opacity="0.5" width="100" height="100"
+                            xlink:href="https://2021.igem.org/wiki/images/f/fd/T--CPU_CHINA--Frosting2.png" />
+                    </pattern>
+                </defs>
+                <g class="main">
+                    <g class="card">
+                        <rect fill="none" stroke="#ccc" opacity="0.75" stroke-width="3" width="100%" height="100%"
+                            rx="10" ry="10" opacity="0.6" />
+                        <rect fill="url(#cardBg)" width="100%" height="100%" rx="11" ry="11" opacity="0.6" />
+                    </g>
+                </g>
+            </svg>
+            <nav>
+                <div class="catalogue-title">ART DESIGN</div>
+                <ul class="catalogue">
+                    <li class="num">
+                        <a href="#section1" title="OVERVIEW">OVERVIEW</a>
+                    </li>
+
+                    <li class="num">
+                        <a href="#section2" title="IDENTITY">IDENTITY</a>
+                    </li>
+
+                    <li class="num">
+                        <a href="#section3" title="ANIMATIONS">ANIMATIONS</a>
+                    </li>
+
+                    <li class="num">
+                        <a href="#section4" title="RESPONSIVENESS">RESPONSIVENESS</a>
+                    </li>
+                </ul>
+            </nav>
+            <img class="drug1" src="https://2021.igem.org/wiki/images/4/40/T--CPU_CHINA--Drug1.png" alt="">
+            <img class="drug2" src="https://2021.igem.org/wiki/images/9/99/T--CPU_CHINA--Drug2.png" alt="">
+        </div>
+        <div id="detail" class="clearfix">
+            <div class="section" id="section1">
+                <h2>
+                    OVERVIEW </h2>
+                <p>
+                    There has never existed an impenetrable wall between science and art. Although reading through
+                    purely academic content will inevitably make people feel extremely boring and exhausted, through
+                    artistic handling, we can bring the lengthly words and formulas alive and equip them with
+                    readability.
+                    Whether static graphic design or dynamic animation effect, we aim to deliver visual and exact
+                    scientific information and interesting and artistic image content to readers.
+                </p>
+            </div>
+
+            <div class="section" id="section2">
+                <h2>
+                    IDENTITY </h2>
+                <h3>
+                    COLOR SCHEME </h3>
+                <p>
+                    We use black, white and gray as the main colors, and blue and cyan as the auxiliary colors.
+                    The combination of black and white and gray is very flexible, beautiful and has a sense of
+                    science and technology,
+                    and echoes the application scenario of our project: express packaging. Blue and cyan
+                    symbolize renewal and hope. In other cases, blue, red, and yellow are also used for bright
+                    colors to distinguish between elements in a particular range.
+                </p>
+                <img src="https://2021.igem.org/wiki/images/d/d9/T--CPU_CHINA--Art--1.jpg">
+                <h3>
+                    LOGO</h3>
+                <p>
+                    Project logo：Our project logo is briefly Abstract form of our degrading</p>
+                <p>
+                    Object：express pakage made of air bubble film and plastic coating.</p>
+                ​ <img src="https://2021.igem.org/wiki/images/f/fb/T--CPU_CHINA--Art--2.jpg">
+                <p>
+                    We also designed different styles to be used in different scenarios.</p>
+                <p>
+                    Team logo：Our team logo is in the shape of a capsule, but the top half has been replaced
+                    with an engineered bacterium, a simple and straightforward message of China
+                    Pharmaceutical University's integration with synthetic biology.
+                    The text part is a re-created font, adding a lively feeling.</p>
+                <img src="https://2021.igem.org/wiki/images/6/62/T--CPU_CHINA--Art--3.jpg">
+                <h3>
+                    MASCOT</h3>
+                <p>
+                    In order to increase the vividness of the project and enhance the identification of the
+                    team, we designed a mascot named Meddy whose name comes from medicine.
+                    The body is a soft capsule, with black, white and gray as the main color, and blue as the
+                    auxiliary color.</p>
+                <img src="https://2021.igem.org/wiki/images/a/a0/T--CPU_CHINA--Art--4.jpg">
+                <p>
+                    We designed figures in different states for Meddy and placed them on different pages, aiming
+                    to improve the uniformity of wiki. It is worth mentioning that we successfully held an art
+                    exhibition about synbio and environmental protection with Meddy as the media.
+                    At the same time, we also made stickers, postcards and toys, please see Human Practices
+                    section for details.</p>
+            </div>
+
+            <div class="section" id="section3">
+                <h2>
+                    ANIMATIONS </h2>
+                <p>
+                    When we're trying to represent a process or a concept, dynamic graphics are an easy and efficient
+                    way to convey meaning. In our promotion video, wiki, presentation, and even human practices, we
+                    mainly exploit frame by frame animation. Compared with keyframe animation, even though it seemed to
+                    be more time consuming and demanding of the artist,
+                    we belive traditional frame by frame will show greater advantages in its flexibility. </p>
+                <img src="https://2021.igem.org/wiki/images/b/b1/T--CPU_CHINA--Art--5.gif">
+            </div>
+
+            <div class="section" id="section4">
+                <h2>
+                    RESPONSIVENESS</h2>
+                <p>
+                    Responsive web design is a design layout of web pages. The idea is that the size of the images on
+                    the page can be created in a concentrated way, and the layout can be intelligently based on user
+                    behavior and device environment.</p>
+                <img src="https://2021.igem.org/wiki/images/1/14/T--CPU_CHINA--Art--6.jpg">
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer>
+        <div id="sponsor">
+            <img src="https://2021.igem.org/wiki/images/3/31/T--CPU_CHINA--Logoes.jpg" alt="">
+        </div>
+
+
+        <div id="connect">
+            <h4>Contact us</h4>
+            <ul id="contact">
+                <li>
+                    <a href="https://weibo.com/u/6054819039">
+                        <img src="https://2021.igem.org/wiki/images/b/ba/T--CPU_CHINA--weibologo.png" alt="">
+                        <p>@CPU_CHINA2021</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:cpu_china2021@163.com">
+                        <img src="https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--emailLogo.png" alt="">
+                        <p>cpu_china2021@163.com</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="https://2021.igem.org/wiki/images/9/98/T--CPU_CHINA--GithubLogo.png" alt="">
+                        <p>Like our Website?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://international.cpu.edu.cn/">
+                        <img src="https://2021.igem.org/wiki/images/4/42/T--CPU_CHINA--CPUlogo.png" alt="">
+                        <p>International Communication</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/VueJS &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/Jquery &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_JS &action=raw&amp;ctype=text/javascript"></script>
+</body>
+
+</html>

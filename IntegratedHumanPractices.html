@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://2017.igem.org/wiki/index.php?title= Template:SCU_China/default_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/reset_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_CSS &action=raw&ctype=text/css">
+    <!-- <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/contentCommon_CSS &action=raw&ctype=text/css"> -->
+    <link rel="stylesheet" href="css/art.css">
+    <style>
+        #header #title {
+            top: 2vw;
+            text-align: center;
+        }
+
+        #contain .left img {
+            position: absolute;
+            width: 80%;
+            top: 200px;
+            left: 12%;
+            z-index: 2;
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div id="load" v-show="loading"><img src="https://2021.igem.org/wiki/images/c/c4/T--CPU_CHINA--loading.gif"
+                alt=""></div>
+        <div id="menu">
+            <div id="menuBack" v-show="isOpen" :class="isActive" @click="ifclick"></div>
+            <a href="https://2021.igem.org/Team:CPU_CHINA"><img id="logo"
+                    src="https://2021.igem.org/wiki/images/d/d5/T--CPU_CHINA--ProjectLogo.png" alt="项目logo"></a>
+            <div id="select" @mouseleave="leave" @mouseover="on">
+                <img id="menuImg" :src="menu" alt="这是菜单图片" @mouseover="mouseover" @click="click">
+                <ul id="class-a" class="class" v-show="classA">
+                    <li v-for="(item,index) in classList" :class="isActiveA == index? 'class-a' : ''"
+                        @click="classAClick(index)">{{item}}</li>
+                </ul>
+                <ul id="class-b" class="class" v-show="classB">
+                    <li v-for="item in classList2[isActiveA]" :class="isActiveB == item.num? 'class-b' : ''"
+                        @mouseover="classBOver(item.num)" @mouseleave="classBLeave(item.num)"><a :href="item.url">
+                            {{item.text}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <img class="background" src="https://2021.igem.org/wiki/images/5/55/T--CPU_CHINA--IHP--Background.png" alt="">
+        <h1 id="title">INTEGRATED HUMAN PRACTICES</h1>
+        <svg width="100%" height="100%" viewBox="0 0 1920 600" version="1.1"
+            style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <g transform="matrix(1.16285,0,0,1.38837,253.426,-231.748)">
+                <g id="AD1">
+                    <path id="凹形遮罩"
+                        d="M1433.18,439.801C1433.18,439.801 1001.08,524.071 607.621,524.374C219.99,524.673 -217.935,439.801 -217.935,439.801L-217.935,944.811L1433.18,944.811L1433.18,439.801Z"
+                        style="fill:#FAFAFA;" />
+                </g>
+            </g>
+        </svg>
+    </header>
+    <div id="contain" class=" clearfix">
+        <div class="left clearfix">
+            <svg class="Frosting" width="70%" height="310px">
+                <defs>
+                    <pattern id="cardBg" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <image opacity="0.5" width="100" height="100"
+                            xlink:href="https://2021.igem.org/wiki/images/7/75/T--CPU_CHINA--Frosting1.png" />
+                        <image class="fillLight" opacity="0.5" width="100" height="100"
+                            xlink:href="https://2021.igem.org/wiki/images/f/fd/T--CPU_CHINA--Frosting2.png" />
+                    </pattern>
+                </defs>
+                <g class="main">
+                    <g class="card">
+                        <rect fill="none" stroke="#ccc" opacity="0.75" stroke-width="3" width="100%" height="100%"
+                            rx="10" ry="10" opacity="0.6" />
+                        <rect fill="url(#cardBg)" width="100%" height="100%" rx="11" ry="11" opacity="0.6" />
+                    </g>
+                </g>
+            </svg>
+            <nav>
+                <div class="catalogue-title">IHP</div>
+                <ul class="catalogue">
+                    <li class="num">
+                        <a href="#section1" title="OVERVIEW">OVERVIEW</a>
+                    </li>
+
+                    <li class="num">
+                        <a href="#section2" title="EXPERT VISITS">EXPERT VISITS</a>
+                    </li>
+
+                    <li class="num">
+                        <a href="#section3" title="SOCIAL GROUP INTERACTION">SOCIAL GROUP INTERACTION</a>
+                    </li>
+
+                    <li class="num">
+                        <a href="#section4" title="PUBLIC SURVEY">PUBLIC SURVEY</a>
+                    </li>
+                </ul>
+            </nav>
+            <img src="https://2021.igem.org/wiki/images/2/2e/T--CPU_CHINA--walking.png" alt="">
+        </div>
+        <div id="detail" class="clearfix">
+            <div class="section" id="section1">
+                <h2 class="mume-header" id="overview">OVERVIEW</h2>
+            </div>
+            <div class="section" id="section2">
+                <h2 class="mume-header" id="expert-visits">EXPERT VISITS</h2>
+            </div>
+            <div class="section" id="section3">
+                <h2 class="mume-header" id="social-group-interaction">SOCIAL GROUP INTERACTION</h2>
+
+                <ol>
+                    <li>Cai Niao Station of China Pharmaceutical University<br>
+                        Cai Niao Courier Station is a logistics service platform for community and campus, which
+                        is led by Cai Niao Network Technology Company Limited. It provides package collection
+                        services for online purchasers and is dedicated to providing consumers with a diverse
+                        last-kilometer service.<br>
+                        <div class="exhibits">
+                            <div class="rotationChart">
+                                <img :src="rotationChart1.content[rotationChart1.number]" alt="">
+                                <div id="text"><button @click="switchLastImg(rotationChart1)">
+                                        < </button>{{rotationChart1.name}}<button
+                                                @click="switchNextImg(rotationChart1)">></button>
+                                </div>
+                            </div>
+                        </div>
+                        More than 40,000 rookie Posts constitute the city-end network of the rookie network in
+                        Chinese cities. We interviewed the staff of the Cai Niao Station of China Pharmaceutical
+                        University to find out the current volume of express packages and the disposal methods
+                        of waste packages.<br>
+                        <div id="TextSwitch">
+                            <h5>{{textSwitch.title[textSwitch.number]}}</h5>
+                            <p>{{textSwitch.content[textSwitch.number]}}</p>
+                            <div class="switchButton">
+                                <input type="image" src="https://2021.igem.org/wiki/images/2/27/T--CPU_CHINA--left.png"
+                                    @click="switchLastImg(textSwitch)"></input>
+                                {{textSwitch.number + 1 + "/" + textSwitch.title.length}}
+                                <input type="image" src="https://2021.igem.org/wiki/images/0/0c/T--CPU_CHINA--right.png"
+                                    @click="switchNextImg(textSwitch)"></input>
+                            </div>
+                        </div>
+                    </li>
+                </ol>
+                <p>Summary: To sum up, our products have tremendous development space and wide social <a
+                        href="http://significance.It">significance.It</a> is conducive to resolving the problems
+                    of resource waste and environmental pollution, and can promote sustainable development. At
+                    the same time, in this interview we realized that wishes of users have a great influence, so
+                    we will also focus on user research and respect their wishes in future survey interviews.
+                    Finally, the staff suggested that we could consult the professionals in charge of garbage
+                    disposal to learn more about the PE treatment process, so we plan to go to the garbage
+                    disposal transfer station for field investigation.</p>
+                <div id="downLoad">
+                    <span>Report on Cai Niao Station.pdf</span>
+                    <a href="https://2021.igem.org/wiki/images/c/ce/T--CPU_CHINA--MRMS--Meddy_In_Wonderland_-_Synthetic_Biology_Adventure.pdf"
+                        download>ACCESS</a>
+                </div>
+                <ol start="2">
+                    <li>Garbage Disposal Transit Station in Jiangning High-tech Zone<br>
+                        From 2009 to 2016, the state committed to outsourcing to promote the marketization
+                        process of public services. The municipal solid waste in Nanjing was outsourced by the
+                        government to qualified companies or social organizations to deal with. We visited
+                        several staff of waste treatment transfer station in Jiangning High-tech Zone to further
+                        investigate the processing process of PE, and they also gave us some suggestions for the
+                        project.<br>
+                        <div class="exhibits">
+                            <div class="rotationChart">
+                                <img :src="rotationChart2.content[rotationChart2.number]" alt="">
+                                <div id="text"><button @click="switchLastImg(rotationChart2)">
+                                        < </button>{{rotationChart2.name}}<button
+                                                @click="switchNextImg(rotationChart2)">></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="TextSwitch">
+                            <h5>{{textSwitch.title[textSwitch.number]}}</h5>
+                            <p>{{textSwitch.content[textSwitch.number]}}</p>
+                            <div class="switchButton">
+                                <input type="image" src="https://2021.igem.org/wiki/images/2/27/T--CPU_CHINA--left.png"
+                                    @click="switchLastImg(textSwitch)"></input>
+                                {{textSwitch.number + 1 + "/" + textSwitch.title.length}}
+                                <input type="image" src="https://2021.igem.org/wiki/images/0/0c/T--CPU_CHINA--right.png"
+                                    @click="switchNextImg(textSwitch)"></input>
+                            </div>
+                        </div>
+                        a. The garbage in the city is mainly kitchen waste and other garbage, and PE plastic in
+                        waste packaging belongs to the scope of other garbage. The station can handle about 300
+                        tons of other garbage a day.<br>
+                        b. The main responsibility of the waste treatment transfer station in Jiangning
+                        High-tech Zone is to collect the waste collected at various locations within the scope
+                        of responsibility and then load it into large waste transport vehicles and transport it
+                        to distant waste disposal sites for incineration or landfill.<br>
+                        c. The staff told us that the volume of other waste is huge, which requires manpower and
+                        material resources to be transported to incineration plant or landfill, and will cause
+                        indelible pollution to the environment.They argue that it would save resources and help
+                        the environment to a certain extent if the disposal of plastic waste could be narrowed
+                        down to individual households or communities.<br>
+                        d. During the field investigation, we noticed that the garbage station had a serious
+                        odor. After talking with the staff, we learned that the odor also had a certain impact
+                        on their health. We reported this to our Collaboration team Tongji_CHINA 2021.We hope it
+                        will be helpful to their project.
+                    </li>
+                </ol>
+                <p>Summary&#xFF1A;The results of the interview show that the current treatment of PE is still
+                    mainly incineration and landfill, not effective recycling, our products can fill this
+                    gap.And according to the suggestions of the staff, we will try to make the application
+                    scenarios of the product routine, but in this process, we realize the difficulties we face
+                    in transforming the technology into products. Next, we plan to seek help from government
+                    departments and relevant enterprises.</p>
+                <div id="downLoad">
+                    <span>Report on Garbage Disposal Transit Station.pdf</span>
+                    <a href="https://2021.igem.org/wiki/images/c/ce/T--CPU_CHINA--MRMS--Meddy_In_Wonderland_-_Synthetic_Biology_Adventure.pdf"
+                        download>ACCESS</a>
+                </div>
+                <ol start="3">
+                    <li>Nanjing Ecological Environment Bureau<br>
+                        The ecological environment bureau is the functional organization of the local
+                        people&apos;s Government in charge of environmental protection. The marketization of
+                        public services does not mean the transfer of government responsibilities. The
+                        ecological environment bureau still has to assume the responsibility of supervision and
+                        management. We contacted the staff of Nanjing ecological environment bureau and
+                        consulted them on our project.</li>
+                </ol>
+                <p>China pays more attention to the phenomenon of excessive packaging in the express industry,
+                    and has also issued relevant laws and regulations to limit it. The environmental bureau also
+                    supports and affirms our project. They suggested that we should pay attention to the
+                    practical significance of the project and consider cost-effectiveness. They said that we can
+                    try to find partners first, implement the technology into products through investment, and
+                    clarify the product positioning for subsequent promotion. As for technical issues, they
+                    recommended that we could seek help from relevant biotechnology companies and listen to the
+                    suggestions of professionals. At the same time, risk assessment and control shall be done
+                    well during the project.</p>
+                <div id="downLoad">
+                    <span>Report On Nanjing Ecological Environment Bureau.pdf</span>
+                    <a href="https://2021.igem.org/wiki/images/c/ce/T--CPU_CHINA--MRMS--Meddy_In_Wonderland_-_Synthetic_Biology_Adventure.pdf"
+                        download>ACCESS</a>
+                </div>
+            </div>
+            <div class="section" id="section4">
+                <h2 class="mume-header" id="public-survey">PUBLIC SURVEY</h2>
+            </div>
+        </div>
+    </div>
+    </div>
+    <footer>
+        <div id="sponsor">
+            <img src="https://2021.igem.org/wiki/images/3/31/T--CPU_CHINA--Logoes.jpg" alt="">
+        </div>
+
+
+        <div id="connect">
+            <h4>Contact us</h4>
+            <ul id="contact">
+                <li>
+                    <a href="https://weibo.com/u/6054819039">
+                        <img src="https://2021.igem.org/wiki/images/b/ba/T--CPU_CHINA--weibologo.png" alt="">
+                        <p>@CPU_CHINA2021</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="mailto:cpu_china2021@163.com">
+                        <img src="https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--emailLogo.png" alt="">
+                        <p>cpu_china2021@163.com</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="">
+                        <img src="https://2021.igem.org/wiki/images/9/98/T--CPU_CHINA--GithubLogo.png" alt="">
+                        <p>Like our Website?</p>
+                    </a>
+                </li>
+                <li>
+                    <a href="https://international.cpu.edu.cn/">
+                        <img src="https://2021.igem.org/wiki/images/4/42/T--CPU_CHINA--CPUlogo.png" alt="">
+                        <p>International Communication</p>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/VueJS &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/Jquery &action=raw&amp;ctype=text/javascript">
+        </script>
+    <script>
+        var contain = new Vue({
+            el: "#contain",
+            data: {
+                rotationChart1: {
+                    number: 0,
+                    name: "Meddy in Wonderland synbio comic strip",
+                    content: ["https://2021.igem.org/wiki/images/4/48/T--CPU_CHINA--MRMS--comic-1.PNG",
+                        "https://2021.igem.org/wiki/images/e/e0/T--CPU_CHINA--MRMS--comic-2.PNG"
+                    ]
+                },
+                rotationChart2: {
+                    number: 0,
+                    name: "Attendees Messages",
+                    content: ["https://2021.igem.org/wiki/images/9/91/T--CPU_CHINA--MRMS--AM1.png",
+                        "https://2021.igem.org/wiki/images/0/00/T--CPU_CHINA--MRMS--AM2.png"
+                    ]
+                },
+                textSwitch: {
+                    number: 0,
+                    title: ["a", "b", "c", "d"],
+                    content: ["The garbage in the city is mainly kitchen waste and other garbage, and PE plastic in waste packaging belongs to the scope of other garbage. The station can handle about 300 tons of other garbage a day.",
+                        "The main responsibility of the waste treatment transfer station in Jiangning High-tech Zone is to collect the waste collected at various locations within the scope of responsibility and then load it into large waste transport vehicles and transport it to distant waste disposal sites for incineration or landfill.",
+                        "The staff told us that the volume of other waste is huge, which requires manpower and material resources to be transported to incineration plant or landfill, and will cause indelible pollution to the environment.They argue that it would save resources and help the environment to a certain extent if the disposal of plastic waste could be narrowed down to individual households or communities.",
+                        "During the field investigation, we noticed that the garbage station had a serious odor. After talking with the staff, we learned that the odor also had a certain impact on their health. We reported this to our Collaboration team Tongji_CHINA 2021.We hope it will be helpful to their project."
+                    ]
+                },
+                textSwich2:{
+                    number: 0,
+                    title:[],
+                    content:[]
+                }
+            },
+            methods: {
+                switchLastImg(item) {
+                    if (item.number == 0) {
+                        item.number = item.content.length;
+                    }
+                    item.number--;
+                },
+                switchNextImg(item) {
+                    if (item.number == item.content.length - 1) {
+                        item.number = -1
+                    }
+                    item.number++;
+                }
+            }
+        })
+    </script>
+    <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_JS &action=raw&amp;ctype=text/javascript"></script>
+</body>
+
+</html>

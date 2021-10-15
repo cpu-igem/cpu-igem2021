@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://2017.igem.org/wiki/index.php?title= Template:SCU_China/default_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/reset_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_CSS &action=raw&ctype=text/css">
+    <link rel="stylesheet"
+        href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/contentCommon_CSS &action=raw&ctype=text/css">
+    <style>
+        #header #title {
+            left: 17%;
+        }
+
+        #contain .left img {
+            position: absolute;
+            width: 70%;
+            top: 160px;
+            left: 12%;
+            z-index: 2;
+        }
+
+        #contain #detail table thead tr,
+#contain #detail table tbody tr {
+    height: 40px;
+}
+        #contain #detail table tr th,
+        #contain #detail table tr td{
+            font-size: 0.7em;
+            padding: 5px;
+            border: 0.5px solid #eaeaea;
+            line-height:1.2em
+        }
+    </style>
+</head>
+
+<body>
+    <header id="header">
+        <div id="load" v-show="loading"><img src="https://2021.igem.org/wiki/images/c/c4/T--CPU_CHINA--loading.gif"
+                alt=""></div>
+        <div id="menu">
+            <div id="menuBack" v-show="isOpen" :class="isActive" @click="ifclick"></div>
+            <a href="https://2021.igem.org/Team:CPU_CHINA"><img id="logo"
+                    src="https://2021.igem.org/wiki/images/d/d5/T--CPU_CHINA--ProjectLogo.png" alt="项目logo"></a>
+            <div id="select" @mouseleave="leave" @mouseover="on">
+                <img id="menuImg" :src="menu" alt="这是菜单图片" @mouseover="mouseover" @click="click">
+                <ul id="class-a" class="class" v-show="classA">
+                    <li v-for="(item,index) in classList" :class="isActiveA == index? 'class-a' : ''"
+                        @click="classAClick(index)">{{item}}</li>
+                </ul>
+                <ul id="class-b" class="class" v-show="classB">
+                    <li v-for="item in classList2[isActiveA]" :class="isActiveB == item.num? 'class-b' : ''"
+                        @mouseover="classBOver(item.num)" @mouseleave="classBLeave(item.num)"><a :href="item.url">
+                            {{item.text}}</a></li>
+                </ul>
+            </div>
+        </div>
+        <img class="background" src="https://2021.igem.org/wiki/images/c/cf/T--CPU_CHINA--Parts--background.png" alt="">
+        <h1 id="title">Parts Overview</h1>
+        <svg width="100%" height="100%" viewBox="0 0 1920 600" version="1.1"
+            style="fill-rule:evenodd;clip-rule:evenodd;stroke-linejoin:round;stroke-miterlimit:2;">
+            <g transform="matrix(1.16285,0,0,1.38837,253.426,-231.748)">
+                <g id="AD1">
+                    <path id="凹形遮罩"
+                        d="M1433.18,439.801C1433.18,439.801 1001.08,524.071 607.621,524.374C219.99,524.673 -217.935,439.801 -217.935,439.801L-217.935,944.811L1433.18,944.811L1433.18,439.801Z"
+                        style="fill:#FAFAFA;" />
+                </g>
+            </g>
+        </svg>
+    </header>
+    <div id="contain" class=" clearfix">
+        <div class="left clearfix">
+            <svg class="Frosting" width="70%" height="280px">
+                <defs>
+                    <pattern id="cardBg" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <image opacity="0.5" width="100" height="100"
+                            xlink:href="https://2021.igem.org/wiki/images/7/75/T--CPU_CHINA--Frosting1.png" />
+                        <image class="fillLight" opacity="0.5" width="100" height="100"
+                            xlink:href="https://2021.igem.org/wiki/images/f/fd/T--CPU_CHINA--Frosting2.png" />
+                    </pattern>
+                </defs>
+                <g class="main">
+                    <g class="card">
+                        <rect fill="none" stroke="#ccc" opacity="0.75" stroke-width="3" width="100%" height="100%"
+                            rx="10" ry="10" opacity="0.6" />
+                        <rect fill="url(#cardBg)" width="100%" height="100%" rx="11" ry="11" opacity="0.6" />
+                    </g>
+                </g>
+            </svg>
+            <nav>
+                <div class="catalogue-title">Parts Overview</div>
+                <ul class="catalogue">
+                    <li class="num">
+                        <a href="#section1" title="BASIC PARTS">BASIC PARTS</a>
+                    </li>
+                    <li class="num">
+                        <a href="#section2" title="COMPOSITE PARTS">COMPOSITE PARTS</a>
+                    </li>
+                    <li class="num">
+                        <a href="#section3" title="PART COLLECTION">PART COLLECTION</a>
+                    </li>
+                </ul>
+            </nav>
+            <img src="https://2021.igem.org/wiki/images/b/b2/T--CPU_CHINA--experimentalize.png" alt="">
+        </div>
+        <div id="detail" class="clearfix">
+
+            <p><span> </span><span>This year, among the 30 parts designed, 19 of them are basic parts and the rest are
+                    composite parts. All of the parts are designed on our own, and most of them have been tested to
+                    ensure their reliability. </span></p>
+            <p><span> </span><strong><span><a href="#">Click here</a> </span></strong><span>
+                    to learn more about our project to understand the purpose of each parts! Click the part number to
+                    see detailed information of the parts we design!</span></p>
+            <div class="section" id="section1">
+                <h2 id='basic-parts'><span>Basic Parts</span></h2>
+                <p><span> </span><span>Among the 19 basic parts designed this year by ourselves, <a href="http://parts.igem.org/Part:BBa_K3853008">BBa_K3853008</a> is our
+                        favorite one, which is the coding sequence of manganese peroxidase derived from
+                    </span><em><span>Phanerochaete chrysosporium</span></em><span>. The translated product of this part
+                        enables our multi-enzyme complex to degrade polyethylene efficiently. Besides, many other basic
+                        parts have also been designed to construct our project.</span></p>
+                <figure>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><span>Favorite</span></th>
+                                <th><span>Part Name</span></th>
+                                <th><span>Type</span></th>
+                                <th><span>Description</span></th>
+                                <th><span>Designer</span></th>
+                                <th><span>Length</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853000">BBa_K3853000</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>MnP</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>1074</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853001">BBa_K3853001</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>AAO</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>1719</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853002">BBa_K3853002</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>HFB1</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>246</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853003">BBa_K3853003</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>dCas9</span></td>
+                                <td><span>GongYu Liu</span></td>
+                                <td><span>4104</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853004">BBa_K3853004</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>SpyTag</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>39</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853001">BBa_K3853005</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>SpyCatcher</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>351</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853006">BBa_K3853006</a></span></td>
+                                <td><span>DNA</span></td>
+                                <td><span>dsDNA</span></td>
+                                <td><span>GongYu Liu</span></td>
+                                <td><span>189</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853007">BBa_K3853007</a></span></td>
+                                <td><span>DNA</span></td>
+                                <td><span>gRNA scaffold</span></td>
+                                <td><span>GongYu Liu</span></td>
+                                <td><span>80</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>♥</span></td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853008">BBa_K3853008</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>his-tag-SpyTag-MnP</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>1248</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853009">BBa_K3853009</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>his-tag-SpyTag-AAO</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>1893</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853010">BBa_K3853010</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>his-tag-SpyTag-HFB1</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>420</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853011">BBa_K3853011</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>dCas9-SpyCatcher</span></td>
+                                <td><span>GongYu Liu</span></td>
+                                <td><span>4530</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853012">BBa_K3853012</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>sfGFP</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>720</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853013">BBa_K3853013</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>MnP(E74P)</span></td>
+                                <td><span>RuYi Ma</span></td>
+                                <td><span>1074</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853014">BBa_K3853014</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>MnP(E74M)</span></td>
+                                <td><span>RuYi Ma</span></td>
+                                <td><span>1074</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853015">BBa_K3853015</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>MnP(D182T)</span></td>
+                                <td><span>RuYi Ma</span></td>
+                                <td><span>1074</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853016">BBa_K3853016</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>MnP(S232P)</span></td>
+                                <td><span>RuYi Ma</span></td>
+                                <td><span>1074</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853017">BBa_K3853017</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>MnP(E74L)</span></td>
+                                <td><span>RuYi Ma</span></td>
+                                <td><span>1074</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853018">BBa_K3853018</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>MnP(S78P)</span></td>
+                                <td><span>RuYi Ma</span></td>
+                                <td><span>1074</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853019">BBa_K3853019</a></span></td>
+                                <td><span>coding</span></td>
+                                <td><span>his-tag</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>1074</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </figure>
+                <p>&nbsp;</p>
+            </div>
+            <div class="section" id="section2">
+                <h2 id='composite-parts'><span>Composite Parts</span></h2>
+                <p><span> </span><span>A series of composite parts have been designed by us this year, and most of them
+                        are
+                        used for the assembly of the PE-degrading complex in our project throughout the season. </span>
+                </p>
+                <p><span> </span><span>To achieve this assembly, we designed fusion enzymes and proteins containing
+                        SpyTag
+                        and fusion deactivated CRISPR-associated protein 9 (dCas9) containing SpyCatcher, enabling the
+                        incubation-induced connection of multi-protein complexes via covalent bond formation mediated by
+                        the
+                        two Spy domains. Subsequently, these multi-protein complexes could anchor to designated
+                        positions on
+                        the designed double-stranded DNA (dsDNA) template through the guidance of dCas9-combined
+                        sgRNAs.</span></p>
+                <p><span> </span><span>Our favorite composite part is <a href="http://parts.igem.org/Part:BBa_K3853051">BBa_K3853051</a> , which contains the sequence of
+                        manganese peroxidase (MnP) for polyethylene degradation, and the sequence of SpyTag for
+                        multi-domain
+                        complex formation, as well as sequences of AOX1 promoter and AOX1 terminator, enabling its
+                        efficient
+                        inducible expression in </span><em><span>Pichia pastoris</span></em><span>.</span></p>
+                <figure>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><span>Favorite</span></th>
+                                <th><span>Part Name</span></th>
+                                <th><span>Type</span></th>
+                                <th><span>Description</span></th>
+                                <th><span>Designer</span></th>
+                                <th><span>Length</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853050">BBa_K3853050</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>P</span><sub><span>AOX1</span></sub><span>-α-factor-sfGFP-AOX1
+                                        Terminator</span>
+                                </td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>2136</span></td>
+                            </tr>
+                            <tr>
+                                <td><span>♥</span></td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853051">BBa_K3853051</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>P</span><sub><span>AOX1</span></sub><span>-α-factor-his-tag-SpyTag-MnP-AOX1
+                                        Terminator</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>2664</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853053">BBa_K3853053</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>P</span><sub><span>AOX1</span></sub><span>-α-factor-his-tag-SpyTag-AAO-AOX1
+                                        Terminator</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>3309</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853054">BBa_K3853054</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>P</span><sub><span>AOX1</span></sub><span>-α-factor-his-tag-SpyTag-HFB1-AOX1
+                                        Terminator</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>1836</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853055">BBa_K3853055</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>R0085-C0012-B2002-his-tag-dCas9-SpyCatcher-B0012</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>5758</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853056">BBa_K3853056</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>P</span><sub><span>AOX1</span></sub><span>-α-factor-his-tag-MnP(E74P)-AOX1
+                                        Terminator</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>2508</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853057">BBa_K3853057</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>P</span><sub><span>AOX1</span></sub><span>-α-factor-his-tag-MnP(E74M)-AOX1
+                                        Terminator</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>2508</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853058">BBa_K3853058</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>P</span><sub><span>AOX1</span></sub><span>-α-factor-his-tag-MnP(D182T)-AOX1
+                                        Terminator</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>2508</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853059">BBa_K3853059</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>P</span><sub><span>AOX1</span></sub><span>-α-factor-his-tag-MnP(S232P)-AOX1
+                                        Terminator</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>2508</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853060">BBa_K3853060</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>P</span><sub><span>AOX1</span></sub><span>-α-factor-his-tag-MnP(E74L)-AOX1
+                                        Terminator</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>2508</span></td>
+                            </tr>
+                            <tr>
+                                <td>&nbsp;</td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853061">BBa_K3853061</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>P</span><sub><span>AOX1</span></sub><span>-α-factor-his-tag-MnP(S78P)-AOX1
+                                        Terminator</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>2508</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </figure>
+                <p>&nbsp;</p>
+            </div>
+            <div class="section" id="section3">
+                <h2 id='part-collection'><strong><span>Part Collection</span></strong></h2>
+                <p><span> </span><span>This year, we developed a part collection related to the CRSIPR/dCas9 anchoring
+                        system. By introducing SpyTag into the N-terminus of different proteins to develop fusion
+                        proteins,
+                        their connection to dCas9-SpyCatcher and the following sgRNA-guided anchoring on dsDNA can be
+                        realized. The type, quantity and proportion of anchoring components will remarkably affect their
+                        individual function, as well as the overall performance of the complex. It depends on how the
+                        system
+                        designer would like to arrange the dCas9-binding sequence on dsDNA, and how the assembly process
+                        is
+                        conducted through specific order for acquiring expected component array of the complex.</span>
+                </p>
+                <p><span> </span><span> For our part collection, we characterized three different fusion proteins, i.e.
+                        SpyTag-MnP, SpyTag-AAO, SpyTag-HFB1, and uploaded their complete and detailed characterization
+                        data
+                        to the iGEM part registry. We hope these organized information can be instructive for the design
+                        and
+                        charaterization of upcoming teams who wish to adopt these protein-nucleic-acid complex.</span>
+                </p>
+                <figure>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th><span>Peptide segment</span></th>
+                                <th><span>Fusion</span></th>
+                                <th><span>Part Name</span></th>
+                                <th><span>Type</span></th>
+                                <th><span>Description</span></th>
+                                <th><span>Designer</span></th>
+                                <th><span>Length</span></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td rowspan="3"><span>SpyTag</span></td>
+                                <td rowspan="3"><span>N-terminal</span></td>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853051">BBa_K3853051</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>P</span><sub><span>AOX1</span></sub><span>-α-factor-his-tag-SpyTag-MnP-AOX1
+                                        Terminator</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>2664</span></td>
+                            </tr>
+                            <tr>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853053">BBa_K3853053</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>P</span><sub><span>AOX1</span></sub><span>-α-factor-his-tag-SpyTag-AAO-AOX1
+                                        Terminator</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>3309</span></td>
+                            </tr>
+                            <tr>
+                                <td><span><a href="http://parts.igem.org/Part:BBa_K3853054">BBa_K3853054</a></span></td>
+                                <td><span>composite</span></td>
+                                <td><span>P</span><sub><span>AOX1</span></sub><span>-α-factor-his-tag-SpyTag-HFB1-AOX1
+                                        Terminator</span></td>
+                                <td><span>Peng Luo</span></td>
+                                <td><span>1836</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </figure>
+            </div>
+        </div>
+    </div>
+        <footer>
+            <div id="sponsor">
+                <img src="https://2021.igem.org/wiki/images/3/31/T--CPU_CHINA--Logoes.jpg" alt="">
+            </div>
+            <div id="connect">
+                <h4>Contact us</h4>
+                <ul id="contact">
+                    <li>
+                        <a href="https://weibo.com/u/6054819039">
+                            <img src="https://2021.igem.org/wiki/images/b/ba/T--CPU_CHINA--weibologo.png" alt="">
+                            <p>@CPU_CHINA2021</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:cpu_china2021@163.com">
+                            <img src="https://2021.igem.org/wiki/images/9/92/T--CPU_CHINA--emailLogo.png" alt="">
+                            <p>cpu_china2021@163.com</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="">
+                            <img src="https://2021.igem.org/wiki/images/9/98/T--CPU_CHINA--GithubLogo.png" alt="">
+                            <p>Like our Website?</p>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://international.cpu.edu.cn/">
+                            <img src="https://2021.igem.org/wiki/images/4/42/T--CPU_CHINA--CPUlogo.png" alt="">
+                            <p>International Communication</p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </footer>
+        <script
+            src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/VueJS &action=raw&amp;ctype=text/javascript">
+            </script>
+        <script
+            src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/Jquery &action=raw&amp;ctype=text/javascript">
+            </script>
+        <script
+            src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/common_JS &action=raw&amp;ctype=text/javascript"></script>
+</body>
+
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width" />
+  <title>英文、中英文地图</title>
+  <link rel="stylesheet"
+        href="https://2017.igem.org/wiki/index.php?title= Template:SCU_China/default_CSS &action=raw&ctype=text/css">
+  <link rel="stylesheet"
+    href="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/demoCenter_CSS &action=raw&ctype=text/css" />
+  <style>
+    @font-face {
+      font-family: MONTSERRAT-BLACKITALIC2;
+      src: url("https://2021.igem.org/wiki/images/d/d4/T--CPU_CHINA--MONTSERRAT-BLACKITALIC2.woff") format("woff");
+    }
+
+    html,
+    body,
+    #container {
+      width: 100%;
+      height: 100%;
+    }
+
+    #container .amap-info-content {
+      font-size: 18px;
+      font-family: "MONTSERRAT-BLACKITALIC2";
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container"></div>
+  <div class="input-card" style="width:13rem">
+    <h4>底图语言切换</h4>
+    <div id="lang">
+      <div class="input-item">
+        <input id="en" name="language" type="radio" checked="checked" /><span class="input-text">英文底图</span>
+      </div>
+      <div class="input-item">
+        <input id="zh_en" name="language" type="radio" /><span class="input-text">中英文对照</span>
+      </div>
+      <div class="input-item">
+        <input id="zh_cn" name="language" type="radio" /><span class="input-text">中文底图</span>
+      </div>
+    </div>
+  </div>
+  <script
+        src="https://2021.igem.org/wiki/index.php?title= Template:CPU_CHINA/Jquery &action=raw&amp;ctype=text/javascript">
+        </script>
+  <script src="https://cache.amap.com/lbs/static/es5.min.js"></script>
+  <script src="https://webapi.amap.com/maps?v=1.4.15&key=52af5b2dd80272505946f07166e90373"></script>
+  <script>
+    //初始化地图
+    var map = new AMap.Map("container", {
+      resizeEnable: true,
+      center: [121.498586, 31.239637],
+      lang: "en" //可选值：en，zh_en, zh_cn
+    });
+
+    //绑定radio点击事件
+    var radios = document.querySelectorAll("#lang input");
+    radios.forEach(function (ratio) {
+      ratio.onclick = setLang;
+    });
+
+    function setLang() {
+      map.setLang(this.id);
+    }
+
+    //给多点添加信息窗体
+    var lnglats = [
+      [118.9158, 31.90211],
+      [118.709253, 32.139623],
+      [116.31374, 39.958339],
+      [112.991798, 28.140219],
+      [121.525, 38.876],
+      [114.414352, 30.519879],
+      [122.866418, 42.016776],
+      [103.867811, 36.050882],
+      [126.63178, 45.71841],
+      [112.59, 28.12],
+      [108.92337, 34.24963],
+      [120.498664, 36.161303],
+      [117.16919, 39.11008],
+      [121.49864, 31.2854],
+      [104.09789, 30.67664],
+      [114.365248, 30.53786],
+      [118.09782, 24.43758],
+      [120.16001, 30.327353]
+    ];
+    var team = [
+      { name: "CPU_CHINA", position: "China Nanjing", wiki: "https://2021.igem.org/Team:CPU_CHINA" },
+      { name: "NAU-CHINA", position: "China Nanjing", wiki: "https://2021.igem.org/Team:NAU-CHINA" },
+      { name: "BIT-China", position: "China Beijing", wiki: "https://2021.igem.org/Team:BIT-China" },
+      { name: "CSU_CHINA", position: "China Changsha", wiki: "https://2021.igem.org/Team:CSU_CHINA" },
+      { name: "DUT_China", position: "China Dalian", wiki: "https://2021.igem.org/Team:DUT_China" },
+      { name: "HUST2-China", position: "China Wuhan", wiki: "https://2021.igem.org/Team:HUST2-China" },
+      { name: "Jilin_China", position: "China Jilin", wiki: "https://2021.igem.org/Team:Jilin_China" },
+      { name: "LZU-CHINA", position: "China Lanzhou", wiki: "https://2021.igem.org/Team:LZU-CHINA" },
+      { name: "NEFU_China", position: "China Harbin", wiki: "https://2021.igem.org/Team:NEFU_China" },
+      { name: "NUDT_CHINA", position: "China Changsha", wiki: "https://2021.igem.org/Team:NUDT_CHINA" },
+      { name: "NWU-CHINA-B", position: "China Xi'an", wiki: "https://2021.igem.org/Team:NWU-CHINA-B" },
+      { name: "OUC-China", position: "China Qingdao", wiki: "https://2021.igem.org/Team:OUC-China" },
+      { name: "Tianjin", position: "China Tianjin", wiki: "https://2021.igem.org/Team:Tianjin" },
+      { name: "Tongji_China", position: "China Shanghai", wiki: "https://2021.igem.org/Team:Tongji_China" },
+      { name: "UESTC-China", position: "China Chengdu", wiki: "https://2021.igem.org/Team:UESTC-China" },
+      { name: "WHU-China", position: "China Wuhan", wiki: "https://2021.igem.org/Team:WHU-China" },
+      { name: "XMU-China", position: "China Xiamen", wiki: "https://2021.igem.org/Team:XMU-China" },
+      { name: "ZJU-China", position: "China Hangzhou", wiki: "https://2021.igem.org/Team:ZJU-China" }
+    ];
+    var infoWindow = new AMap.InfoWindow({ offset: new AMap.Pixel(0, -30) });
+    for (var i = 0, marker; i < lnglats.length; i++) {
+      var marker = new AMap.Marker({
+        position: lnglats[i],
+        map: map
+      });
+      marker.content = team[i].name + "<br>" + "<a href='" + team[i].wiki + "'>" + team[i].position + "</a>";
+      marker.on("click", markerClick);
+      marker.emit("click", { target: marker });
+    }
+    function markerClick(e) {
+      infoWindow.setContent(e.target.content);
+      infoWindow.open(map, e.target.getPosition());
+    }
+    map.setFitView();
+  </script>
+</body>
+
+</html>
